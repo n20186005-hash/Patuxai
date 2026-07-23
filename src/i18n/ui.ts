@@ -20,7 +20,13 @@ export const htmlLang: Record<Lang, string> = {
   zh: 'zh-CN',
 };
 
-export function getI18n(lang?: string): { lang: Lang; messages: any } {
-  const l = (lang && (languagesList as readonly string[]).includes(lang) ? lang : defaultLang) as Lang;
+export function getI18n(langParam?: string | URL): { lang: Lang; messages: any } {
+  let langStr = langParam as string;
+  if (langParam instanceof URL) {
+    const [, pathLang] = langParam.pathname.split('/');
+    langStr = pathLang;
+  }
+  
+  const l = (langStr && (languagesList as readonly string[]).includes(langStr) ? langStr : defaultLang) as Lang;
   return { lang: l, messages: messagesMap[l] };
 }

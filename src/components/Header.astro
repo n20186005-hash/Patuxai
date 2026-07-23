@@ -20,7 +20,16 @@ const navItems = [
   { label: h.map, href: '#map' },
 ];
 
-const switchTo = (target: Lang) => `/${target}/`;
+const currentPath = Astro.url.pathname;
+const switchTo = (target: Lang) => {
+  const segments = currentPath.split('/').filter(Boolean);
+  if (segments.length > 0 && languagesList.includes(segments[0] as Lang)) {
+    segments[0] = target;
+  } else {
+    segments.unshift(target);
+  }
+  return `/${segments.join('/')}${currentPath.endsWith('/') ? '/' : ''}`;
+};
 ---
 
 <header class="fixed top-0 inset-x-0 z-50 bg-teak/90 backdrop-blur-md border-b border-gold/20">

@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 const { lang, doc } = Astro.params as { lang: Lang; doc: string };
 const { getI18n } = await import('../../i18n/ui');
-const { messages } = await getI18n(new URL(`/${lang}/${doc}`, 'http://localhost'));
+const { messages } = await getI18n(lang);
 const legal = (messages.legal && messages.legal[doc]) || { title: doc, body: [] };
 const description = (legal.body && legal.body[0]) || legal.title;
 ---

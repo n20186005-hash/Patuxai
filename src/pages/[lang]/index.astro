@@ -20,7 +20,8 @@ export async function getStaticPaths() {
   return languagesList.map((lang) => ({ params: { lang } }));
 }
 
-const { lang, messages } = await getI18n(Astro.url);
+const { lang: paramLang } = Astro.params as { lang: Lang };
+const { lang, messages } = await getI18n(paramLang);
 ---
 
 <BaseLayout lang={lang} title={messages.meta.title} description={messages.meta.description} messages={messages}>
