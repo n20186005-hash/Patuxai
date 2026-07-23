@@ -196,6 +196,7 @@
       "tag": "🚌 Getting there",
       "title": "How to reach Patuxai",
       "items": [
+        { "title": "From Wattay International Airport (VTE)", "desc": "Patuxai is about 5–6 km from Wattay International Airport, Vientiane. At the arrivals hall, take a taxi or use the airport counter (roughly 50,000–80,000 LAK); via Route 13 and Lane Xang Avenue it takes about 15–25 minutes. Alternatively, take city bus 14 to the center, then transfer to a tuk-tuk." },
         { "title": "By tuk-tuk / taxi", "desc": "From the city center, a short ride along Lane Xang Avenue; agree the fare first." },
         { "title": "By bus", "desc": "Several Vientiane city bus lines pass nearby — cheap and frequent." },
         { "title": "On foot / bike", "desc": "About 2 km east of the city center; flat, shaded and walkable." }
@@ -410,7 +411,7 @@
     "factText": "Built 1957–1968; commemorates Lao independence; located on Lane Xang Avenue, Vientiane. Hours and fees are indicative and may change — verify on site.",
     "correctionTitle": "Spot an error?",
     "correctionText": "This guide is community-maintained. If you notice outdated or incorrect information, please let us know.",
-    "correctionMailto": "mailto:hello@patuxai.com?subject=Patuxai%20guide%20correction",
+    "correctionMailto": "mailto:n20186005@gmail.com?subject=Patuxai%20guide%20correction",
     "correctionCta": "Send a correction",
     "copyright": "© 2026 Patuxai Visitor Guide."
   },

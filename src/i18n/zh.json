@@ -196,6 +196,7 @@
       "tag": "🚌 交通",
       "title": "如何抵达",
       "items": [
+        { "title": "从瓦岱国际机场 (VTE)", "desc": "凯旋门距万象瓦岱国际机场约 5–6 公里。出到达厅可乘出租车或机场柜台约车，车资约 50,000–80,000 基普，走 13 号公路转澜沧大道约 15–25 分钟即达；也可乘市区 14 路公交先到市中心再换乘嘟嘟车。" },
         { "title": "嘟嘟车 / 出租车", "desc": "从市中心沿澜沧大道短途即达；请先谈好价钱。" },
         { "title": "公交车", "desc": "多条万象市内线路途经附近——便宜且频繁。" },
         { "title": "步行 / 骑行", "desc": "距市中心约 2 公里，平坦、有树荫、适宜步行。" }
@@ -410,7 +411,7 @@
     "factText": "建于 1957–1968 年；纪念老挝独立；位于万象澜沧大道。开放时间与费用仅供参考，可能变动——请以现场为准。",
     "correctionTitle": "发现错误？",
     "correctionText": "本指南由社区维护。如你发现过时或不正确信息，请告知我们。",
-    "correctionMailto": "mailto:hello@patuxai.com?subject=Patuxai%20guide%20correction",
+    "correctionMailto": "mailto:n20186005@gmail.com?subject=Patuxai%20guide%20correction",
     "correctionCta": "提交纠错",
     "copyright": "© 2026 凯旋门游客指南。"
   },

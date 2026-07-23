@@ -7,16 +7,16 @@ export const siteConfig = {
 
   // Display name per language (default = lo / Lao).
   name: {
-    lo: 'ປະຕູ໊ໄຊ',
+    lo: 'ປະຕູໄຊ',
     en: 'Patuxai',
     zh: '万象凯旋门',
   } as Record<Lang, string>,
   nameShort: {
-    lo: 'ປະຕູ໊ໄຊ',
+    lo: 'ປະຕູໄຊ',
     en: 'Patuxai',
     zh: '凯旋门',
   } as Record<Lang, string>,
-  nameLocal: 'Patuxai · ປະຕູ໊ໄຊ · 万象凯旋门',
+  nameLocal: 'Patuxai · ປະຕູໄຊ · 万象凯旋门',
 
   // Actual Patuxai coordinates (Lane Xang Ave, Vientiane).
   coords: {
@@ -58,7 +58,7 @@ export const siteConfig = {
     },
     {
       name: {
-        lo: 'ວິກິພີເດຍ: ປະຕູ໊ໄຊ',
+        lo: 'ວິກິພີເດຍ: ປະຕູໄຊ',
         en: 'Wikipedia: Patuxai',
         zh: '维基百科：凯旋门（万象）',
       } as Record<Lang, string>,
