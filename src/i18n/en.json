@@ -1,0 +1,443 @@
+{
+  "meta": {
+    "title": "Patuxai (Victory Gate), Vientiane | Visitor Guide, Hours & Photos",
+    "description": "Plan your visit to Patuxai, Vientiane's monumental Victory Gate — Laos's answer to the Arc de Triomphe. Hours, tickets, how to get there, photo spots and traveler reviews.",
+    "keywords": "Patuxai, Victory Gate, Vientiane, Laos, monument, Arc de Triomphe, things to do in Vientiane"
+  },
+  "nav": {
+    "home": "Home", "about": "About", "history": "History", "guide": "Visit Guide", "food": "Nearby Eats", "gallery": "Photos", "reviews": "Reviews", "map": "Map"
+  },
+  "header": {
+    "home": "Home", "about": "About", "history": "History", "guide": "Visit Guide", "food": "Nearby Eats", "gallery": "Photos", "reviews": "Reviews", "map": "Map"
+  },
+  "hero": {
+    "eyebrow": "Vientiane · Laos",
+    "titleMain": "Patuxai",
+    "titleAccent": "Victory Gate",
+    "subtitle": "Vientiane's monumental war memorial — a Lao reimagining of the Arc de Triomphe, crowned with mythical kinnari and opened to panoramic city views.",
+    "cta1": "Read the guide",
+    "cta2": "Open in Maps",
+    "quickNav": [
+      { "label": "About", "href": "#about" },
+      { "label": "History", "href": "#history" },
+      { "label": "Visit Guide", "href": "#guide" },
+      { "label": "Photos", "href": "#gallery" },
+      { "label": "Reviews", "href": "#reviews" }
+    ],
+    "rating": "4.4",
+    "reviewCount": "12,528",
+    "viewLocation": "View on Google Maps",
+    "boardCategory": "At a glance",
+    "boardTitle": "Patuxai",
+    "boardEn": "Victory Gate · Vientiane",
+    "plannerTitle": "Today at the Gate",
+    "liveWeather": "Live weather",
+    "plannerNote": "Live conditions update automatically from open-meteo.com using the monument's exact coordinates.",
+    "defaultTemp": "--°",
+    "defaultCond": "Loading…",
+    "defaultWind": "Wind —",
+    "sunsetIndexLabel": "Golden-hour index",
+    "sunsetIndexDefault": "Calculating…",
+    "goldenHourLabel": "Golden hour",
+    "sunsetLabel": "Sunset",
+    "blueHourLabel": "Blue hour",
+    "defaultGolden": "--:--",
+    "defaultSunset": "--:--",
+    "defaultBlue": "--:--",
+    "defaultTip": "The top deck faces west — stay for the sunset over the Mekong plains.",
+    "lightCaption": "Light & golden-hour planner — auto-calculated from Patuxai's coordinates.",
+    "coordsLabel": "Coordinates",
+    "weatherError": "Weather unavailable right now. Typical Vientiane weather: hot and humid, rainy season May–October.",
+    "goldenChanceLabel": "Chance of good light"
+  },
+  "about": {
+    "label": "About",
+    "heading": "What is Patuxai?",
+    "lead": "Patuxai — literally 'Victory Gate' — is Vientiane's best-known monument: a massive war memorial that fuses French triumphal-arch grandeur with distinctly Lao Buddhist and Hindu motifs.",
+    "paragraph1": "Built between 1957 and 1968, Patuxai was commissioned to honor those who fought for Laos's independence from France. Rather than copy a European monument, Lao architects dressed it in local symbolism: the central spire and four corner towers are topped with kinnari (half-woman, half-bird figures), while naga serpents and lotus buds decorate the arches.",
+    "paragraph2": "The result is often called 'the Lao Arc de Triomphe'. Walk through the arches and climb the interior staircases to upper galleries and a rooftop platform, where the wide avenues and low skyline of Vientiane spread out below — with the Mekong and, on clear days, the hills of Thailand beyond.",
+    "neutrality": "Patuxai is a civic and commemorative monument, not a religious site. Visitors of all backgrounds are welcome to walk the grounds and climb the tower.",
+    "quote": "They used American cement meant for an airport runway — so locals still call it 'the vertical runway'.",
+    "quoteAuthor": "Vientiane saying",
+    "stats": [
+      { "value": "1957–68", "label": "Built" },
+      { "value": "07:30–19:30", "label": "Open daily" },
+      { "value": "4.4★", "label": "12,528 reviews" }
+    ],
+    "highlights": [
+      { "tag": "◆", "title": "Lao motifs", "desc": "Kinnari, naga and lotus carvings instead of French reliefs." },
+      { "tag": "▲", "title": "Rooftop view", "desc": "Climb to the top deck for sweeping views of Vientiane." },
+      { "tag": "✦", "title": "Central avenue", "desc": "Framed by fountains and the broad Lane Xang boulevard." }
+    ],
+    "editorTip": {
+      "tag": "Editor tip",
+      "text": "Bring small cash (a few thousand kip) for the climb fee, and come late afternoon for cooler air and the best light.",
+      "ctaLabel": "See the full visit guide"
+    }
+  },
+  "history": {
+    "label": "History",
+    "heading": "A gate built from 'runway cement'",
+    "intro": "Patuxai's story is tied to Laos's independence, a gift of cement, and a wry national sense of humor.",
+    "blocks": [
+      { "title": "Independence memorial", "text": "After independence from France, the government began a monument commemorating those who died for freedom. Construction started around 1957." },
+      { "title": "The 'vertical runway'", "text": "The US donated cement intended for a new airport runway; it was used for the monument instead — earning the nickname 'the vertical runway'." },
+      { "title": "Completed 1968", "text": "The monument was finished around 1968 and later renamed Patuxai ('Victory Gate') after the 1975 takeover by the Pathet Lao." }
+    ],
+    "legend": {
+      "title": "Why 'Victory Gate'?",
+      "text": "Patuxai combines 'patu' (gate) and 'xai' (victory). It points to Laos's independence and, later, to the 1975 revolution."
+    },
+    "didYouKnow": {
+      "title": "Did you know?",
+      "text": "Unlike the smooth Arc de Triomphe in Paris, Patuxai is richly ornamented with Lao mythological figures — a statement that this victory belonged to Laos, not to any colonial power."
+    },
+    "folklore": {
+      "title": "Myth on the spire",
+      "text": "The towers are crowned with kinnari — celestial half-bird, half-woman beings from Lao lore, said to bridge the earthly and the divine while watching over the city.",
+      "shrineTitle": "A monument, not a temple",
+      "shrine": "Though the carvings draw on religious imagery, Patuxai is a secular war memorial. The surrounding Patuxai Park, with musical fountains, is a favorite evening spot for local families."
+    }
+  },
+  "legacy": {
+    "label": "Architecture & Symbolism",
+    "heading": "French form, Lao soul",
+    "intro": "Patuxai is most interesting as a meeting point of European monumentalism and Lao decorative tradition.",
+    "philosophies": {
+      "title": "Three things to look for",
+      "intro": "When you visit, keep an eye out for these signature details.",
+      "items": [
+        { "name": "Kinnari crowns", "nameEn": "Kinnari crowns", "tagline": "Mythical guardians on every tower", "points": ["The central and four corner towers are topped with kinnari, not French statues.", "These half-bird, half-woman figures appear throughout Lao temple art."] },
+        { "name": "Naga & lotus", "nameEn": "Naga & lotus", "tagline": "Serpents and blossoms in the arches", "points": ["Naga balustrades guard the stairways, a classic Lao motif.", "Lotus-bud finials echo the decoration of Buddhist stupas."] },
+        { "name": "Interior climb", "nameEn": "Interior climb", "tagline": "A tower you can go inside", "points": ["Four staircases spiral up to viewing galleries.", "The top platform offers the best 360° view of Vientiane."] }
+      ]
+    },
+    "gms": {
+      "title": "Cousins around the world",
+      "intro": "Patuxai belongs to a global family of triumphal arches and victory monuments.",
+      "headRegion": "Monument",
+      "headTemples": "Where & note",
+      "rows": [
+        { "region": "Arc de Triomphe", "temples": "Paris, France — the clear model, but smooth and unadorned." },
+        { "region": "India Gate", "temples": "New Delhi, India — another independence-era arch in a former colony." },
+        { "region": "Siegessäule", "temples": "Berlin, Germany — a victory column with a climbable platform." },
+        { "region": "Arch of Independence", "temples": "Ulaanbaatar, Mongolia — a post-independence national monument." }
+      ]
+    },
+    "unesco": {
+      "title": "Design notes",
+      "intro": "A few facts that make the structure distinctive.",
+      "headArea": "Feature",
+      "headFit": "Why it matters",
+      "rows": [
+        { "area": "Orientation", "fit": "On the central axis of Lane Xang Avenue, facing That Luang to the east." },
+        { "area": "Scale", "fit": "Broad and low-slung versus Paris's arch, suiting Vientiane's open skyline." },
+        { "area": "Decoration", "fit": "Ornate Lao reliefs replace its European cousins' neoclassical sculpture." }
+      ]
+    },
+    "pilgrimage": {
+      "title": "A visitor's route through Patuxai",
+      "intro": "Suggested stops as you explore, from ground to summit.",
+      "stations": [
+        { "num": "1", "name": "Ground arches", "desc": "Walk beneath the four arches and read the independence inscriptions." },
+        { "num": "2", "name": "Inner staircases", "desc": "Climb the steep spiral stairs (a small fee applies at the top)." },
+        { "num": "3", "name": "Gift shops & museum", "desc": "Lower galleries hold small stalls and a modest museum." },
+        { "num": "4", "name": "Top deck", "desc": "Reach the open rooftop for the panorama and the kinnari spires up close." },
+        { "num": "5", "name": "Patuxai Park", "desc": "Finish at the fountains and gardens across the boulevard." }
+      ]
+    },
+    "timeline": {
+      "title": "Key dates",
+      "events": [
+        { "date": "1957", "title": "Groundbreaking", "place": "Vientiane", "desc": "Work begins on a national independence monument." },
+        { "date": "1960s", "title": "The 'runway cement'", "place": "Vientiane", "desc": "US-donated cement intended for an airport is used for the structure." },
+        { "date": "1968", "title": "Completion", "place": "Vientiane", "desc": "The monument is finished and opened to the public." },
+        { "date": "1975", "title": "Renamed Patuxai", "place": "Vientiane", "desc": "After the revolution, it is renamed 'Victory Gate'." }
+      ]
+    }
+  },
+  "guide": {
+    "label": "Visit Guide",
+    "heading": "Plan your visit to Patuxai",
+    "lead": "Everything you need: opening hours, the climb fee, how to get there, the best light for photos, and what to see nearby.",
+    "twoZone": {
+      "title": "Two ways to enjoy it",
+      "intro": "You don't have to climb to enjoy Patuxai — but it's worth it.",
+      "difficultyLabel": "Effort: ",
+      "items": [
+        { "name": "Grounds & park (free)", "suits": "Families, photographers, casual strollers", "desc": "Stroll the arches, gardens and fountains at no cost — great for morning exercise and evening light." },
+        { "name": "Climb to the top", "difficulty": "★", "note": "steep stairs", "suits": "View-seekers, sunset lovers", "desc": "Pay a small fee at the booth, then climb the spiral stairs to the rooftop panorama." }
+      ]
+    },
+    "scamTip": {
+      "tag": "⚠ Friendly warning",
+      "text": "A few touts near the entrance may overstate 'closed' hours or push unofficial 'guide' fees. The monument is open and the climb fee is clearly posted at the booth — ignore anyone who says otherwise."
+    },
+    "hours": {
+      "tag": "🕖 Hours",
+      "time": "07:30 – 19:30 daily",
+      "items": [
+        { "label": "Grounds & park", "value": "Always open" },
+        { "label": "Tower climb", "value": "07:30 – 19:30" },
+        { "label": "Best light", "value": "16:30 – 18:30" },
+        { "label": "Fountains show", "value": "Evenings (seasonal)" }
+      ]
+    },
+    "fees": {
+      "tag": "💵 Tickets",
+      "title": "What it costs",
+      "items": [
+        { "title": "Grounds & park", "desc": "Free to walk around at any time." },
+        { "title": "Tower climb", "desc": "A modest fee (around 5,000–30,000 LAK, roughly $0.50–$1.50) — cash only, paid at the booth. Rates change, so check on site." },
+        { "title": "Camera", "desc": "Usually included; a small extra charge may apply for video." }
+      ]
+    },
+    "transport": {
+      "tag": "🚌 Getting there",
+      "title": "How to reach Patuxai",
+      "items": [
+        { "title": "By tuk-tuk / taxi", "desc": "From the city center, a short ride along Lane Xang Avenue; agree the fare first." },
+        { "title": "By bus", "desc": "Several Vientiane city bus lines pass nearby — cheap and frequent." },
+        { "title": "On foot / bike", "desc": "About 2 km east of the city center; flat, shaded and walkable." }
+      ]
+    },
+    "photography": {
+      "title": "Photography & golden hour",
+      "intro": "Patuxai is photogenic from every angle — here is how to catch the best light.",
+      "timesTitle": "Best light windows",
+      "times": [
+        { "period": "Morning", "desc": "Soft, even light on the east face; few crowds." },
+        { "period": "Late afternoon", "desc": "Warm light rakes across the reliefs — best for texture." },
+        { "period": "Blue hour", "desc": "The monument and fountains glow after sunset; bring a tripod." }
+      ],
+      "spotsTitle": "Photo spots",
+      "spots": [
+        { "name": "Central axis", "view": "Symmetrical shot down Lane Xang Avenue toward the arch.", "tip": "Stand in the middle of the boulevard (safely) for the classic framing." },
+        { "name": "Fountain foreground", "view": "Patuxai reflected in the park pools at dusk.", "tip": "Lower your angle to include water and the lit spires." },
+        { "name": "Top deck", "view": "360° panorama of Vientiane and the Mekong.", "tip": "Use a wide lens; watch the railings in frame." }
+      ],
+      "settingsTitle": "Camera & phone settings",
+      "settings": [
+        { "style": "Architecture", "camera": "f/8–11, ISO 100, 16–24 mm", "phone": "0.5× wide, tap to expose the sky" },
+        { "style": "Blue hour", "camera": "f/8, 2–5 s, tripod", "phone": "Night mode, steady hands" },
+        { "style": "Details", "camera": "50–85 mm, f/4", "phone": "2× zoom, get close to reliefs" }
+      ],
+      "tipsTitle": "Quick tips",
+      "tips": [
+        "Visit on a clear day for the distant Mekong view from the top.",
+        "Come 90 minutes before sunset for golden hour on the west face.",
+        "The spiral stairs are narrow — travel light and wear good shoes."
+      ]
+    },
+    "bestTime": {
+      "title": "Best time of year",
+      "intro": "Vientiane has three rough seasons; the cool, dry months are most comfortable.",
+      "seasons": [
+        { "tag": "❄ Cool", "months": "Nov–Feb", "name": "Best window", "desc": "Pleasant 20–30°C days, low humidity — ideal for climbing and photos." },
+        { "tag": "🌤 Hot", "months": "Mar–Apr", "name": "Very hot", "desc": "40°C+ can make the open stair climb brutal; go early or after 16:00." },
+        { "tag": "🌧 Wet", "months": "May–Oct", "name": "Green & quiet", "desc": "Afternoon showers; mornings are usually clear and the park is lush." }
+      ]
+    },
+    "safety": {
+      "title": "Stay safe",
+      "items": [
+        { "title": "Stairs", "desc": "The spiral staircases are steep and dim — use the handrail and watch your step." },
+        { "title": "Heat", "desc": "Carry water; the open top deck has little shade at midday." },
+        { "title": "Belongings", "desc": "Keep valuables close in busy periods and around the stalls." }
+      ]
+    },
+    "hazeSeason": {
+      "tag": "🌫 Burning-season note",
+      "text": "From roughly February to April, regional haze can soften distant views. Mornings are usually clearer, and the monument itself is unaffected."
+    },
+    "emergency": {
+      "title": "Emergency numbers",
+      "intro": "For serious emergencies in Laos:",
+      "items": [
+        { "title": "Police", "value": "1191" },
+        { "title": "Ambulance", "value": "1195" },
+        { "title": "Fire", "value": "1190" }
+      ]
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "intro": "The grounds are largely flat and open, but the tower climb is not step-free.",
+      "items": [
+        { "title": "Ground level", "desc": "Paved, step-free paths around the arches and park — wheelchair and stroller friendly." },
+        { "title": "Tower", "desc": "Only via steep spiral stairs; not suitable for mobility aids. Views are also enjoyable from the park." },
+        { "title": "Restrooms", "desc": "Public toilets are available near the entrance and park." }
+      ]
+    },
+    "faqTitle": "Frequently asked questions",
+    "faqs": [
+      { "q": "Is Patuxai free to enter?", "a": "The grounds and park are free. Climbing the tower costs a small posted fee (cash at the booth)." },
+      { "q": "How long should I spend?", "a": "About 45–90 minutes: 20 minutes at the base and gardens, plus the climb and rooftop." },
+      { "q": "When is the best time to visit?", "a": "Late afternoon (16:30–18:30) for cooler air and sunset light; November–February for the most comfortable weather." },
+      { "q": "Can I see it without climbing?", "a": "Yes — the arches, gardens and fountains are free and photogenic, and the view can be enjoyed from the park." },
+      { "q": "What should I wear?", "a": "Light, respectful clothing is fine; it is a civic monument, not a temple, so no strict dress code." }
+    ],
+    "nearby": {
+      "title": "Near Patuxai",
+      "items": [
+        { "name": "That Luang (Great Stupa)", "desc": "Laos's most sacred monument, about 2 km east.", "url": "https://en.wikipedia.org/wiki/Pha_That_Luang" },
+        { "name": "Wat Si Saket", "desc": "Vientiane's oldest surviving temple, with thousands of Buddha images.", "url": "https://en.wikipedia.org/wiki/Wat_Si_Saket" },
+        { "name": "Haw Phra Kaew", "desc": "Former royal temple and museum near the city center.", "url": "https://en.wikipedia.org/wiki/Haw_Phra_Kaew" },
+        { "name": "Mekong riverfront", "desc": "Sunset promenade with food stalls, 2.5 km southwest.", "url": "https://en.wikipedia.org/wiki/Vientiane" },
+        { "name": "COPE Visitor Centre", "desc": "Moving museum on Laos's UXO history, near the avenue.", "url": "https://copelaos.org" },
+        { "name": "Lao National Museum", "desc": "Overview of Lao history and independence, central Vientiane.", "url": "https://en.wikipedia.org/wiki/Lao_National_Museum" }
+      ],
+      "cta": "Explore"
+    }
+  },
+  "food": {
+    "label": "Nearby Eats",
+    "heading": "What to eat near Patuxai",
+    "lead": "Vientiane's food scene is around the corner — from dawn markets to riverside barbecue.",
+    "dishes": [
+      { "tag": "🍜", "name": "Khao piak sen", "price": "~15,000 LAK", "desc": "Comforting Lao noodle soup with hand-pulled noodles — a classic breakfast." },
+      { "tag": "🥟", "name": "Khao jee pa tê", "desc": "Lao baguette sandwich (French-colonial legacy) with pâté, herbs and chili.", "price": "~15,000 LAK" },
+      { "tag": "🐟", "name": "Mok pa", "price": "~30,000 LAK", "desc": "Fish steamed in banana leaves with lemongrass and dill." },
+      { "tag": "🍢", "name": "Ping kai / sua", "price": "~20,000 LAK", "desc": "Grilled chicken or pork skewers with sticky rice — street-food staples." },
+      { "tag": "🥤", "name": "Nam van / fruit shake", "price": "~10,000 LAK", "desc": "Iced tropical fruit shakes to beat the heat." }
+    ],
+    "quote": {
+      "text": "In Vientiane you eat French bread in the morning and Lao grilled food by the river at night — Patuxai sits right between those worlds.",
+      "author": "A Vientiane food writer"
+    }
+  },
+  "gallery": {
+    "label": "Photos",
+    "heading": "Patuxai in pictures",
+    "intro": "A look at the monument, its reliefs and the park that surrounds it.",
+    "historicalNote": "Photos are for illustration; the structure and gardens have changed over the decades.",
+    "credits": "Images via Google Maps user contributions.",
+    "viewLocation": "View on Google Maps",
+    "alts": [
+      "Patuxai Victory Gate viewed from Lane Xang Avenue",
+      "The central arch and kinnari-topped towers",
+      "Reliefs and naga balustrades on the monument",
+      "Interior spiral staircase climbing the tower",
+      "Viewing gallery with city panorama",
+      "Rooftop platform and spires up close",
+      "Patuxai Park fountains at dusk",
+      "The boulevard framed by the arch",
+      "Lotus and naga decorative details",
+      "Evening light on the west face",
+      "Visitors walking through the arches",
+      "The monument against a blue Vientiane sky",
+      "Musical fountain show in the park",
+      "Gardens and pathways around Patuxai",
+      "Sunset glow over the rooftop",
+      "Detail of a kinnari figure",
+      "Looking east toward That Luang",
+      "Night view of the illuminated gate"
+    ]
+  },
+  "reviews": {
+    "label": "Reviews",
+    "heading": "What visitors say",
+    "intro": "A snapshot of traveler impressions from public review platforms.",
+    "disclaimer": "Aggregated from public reviews · not endorsed",
+    "declaration": "This site is independent and not affiliated with any review platform.",
+    "featured": [
+      { "text": "Climb to the top — the view over Vientiane at sunset is worth every step of the narrow stairs.", "source": "— Traveler review" },
+      { "text": "A unique monument: French grandeur with a distinctly Lao soul. The kinnari details are beautiful.", "source": "— Traveler review" }
+    ],
+    "items": [
+      { "rating": "5", "text": "[Best view] The rooftop panorama at golden hour is spectacular — go just before sunset.", "name": "Mai K.", "date": "2025" },
+      { "rating": "4", "text": "[Worth the climb] Small fee to go up; the stairs are steep but the city view is great.", "name": "Tom B.", "date": "2025" },
+      { "rating": "4", "text": "[Free grounds] Loved walking the arches and fountains without paying anything.", "name": "Lin W.", "date": "2024" },
+      { "rating": "5", "text": "[Photo spot] Symmetrical shots down the avenue are stunning in the morning light.", "name": "Anna R.", "date": "2024" },
+      { "rating": "3", "text": "[Manage expectations] The interior is a bit worn, but the symbolism and view make up for it.", "name": "James P.", "date": "2024" },
+      { "rating": "5", "text": "[Local life] The evening fountain show and families in the park were a highlight.", "name": "Somchai T.", "date": "2023" },
+      { "rating": "4", "text": "[Easy visit] Flat, walkable, and close to other Vientiane sights.", "name": "Elena G.", "date": "2023" },
+      { "rating": "4", "text": "[Architecture] Loved comparing it to the Arc de Triomphe — same idea, very different detail.", "name": "David L.", "date": "2023" }
+    ],
+    "viewLocation": "View on Google Maps"
+  },
+  "mapSection": {
+    "label": "Location",
+    "heading": "Find Patuxai",
+    "lead": "On Lane Xang Avenue in central Vientiane, a short ride from the old town and the Mekong.",
+    "stats": [
+      { "tag": "📍", "value": "Lane Xang Ave", "sub": "Central Vientiane" },
+      { "tag": "🕖", "value": "07:30–19:30", "sub": "Open daily" },
+      { "tag": "⭐", "value": "4.4 / 5", "sub": "12,528 reviews" }
+    ],
+    "address": "Ave Lane Xang, Vientiane 01000, Laos",
+    "plusCode": "XJC9+6F Vientiane, Laos",
+    "coords": "17.9705° N, 102.6140° E",
+    "rWalkTip": {
+      "title": "Getting here",
+      "desc": "Tuk-tuks and taxis run along Lane Xang Avenue; city buses stop nearby, and it is a flat 2 km walk from the city center."
+    }
+  },
+  "footer": {
+    "brand": { "name": "Patuxai", "tagline": "Victory Gate · Vientiane" },
+    "about": "An independent, non-profit visitor guide to Patuxai — Vientiane's monumental Victory Gate and one of Laos's most recognizable landmarks.",
+    "navTitle": "Explore",
+    "navItems": [
+      { "label": "About", "href": "#about" },
+      { "label": "History", "href": "#history" },
+      { "label": "Visit Guide", "href": "#guide" },
+      { "label": "Photos", "href": "#gallery" },
+      { "label": "Reviews", "href": "#reviews" },
+      { "label": "Location", "href": "#map" }
+    ],
+    "noteTitle": "Visit",
+    "note": "Open daily 07:30–19:30. The grounds are free; a small fee applies to climb the tower.",
+    "mapsLabel": "Google Maps →",
+    "sourcesTitle": "Sources & references",
+    "sourcesNote": "Content is compiled from public tourism information and reference sources for educational, non-commercial use.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Settings",
+    "disclaimerLead": "This is an independent, non-profit guide. It is not affiliated with or endorsed by any government body or the managers of Patuxai.",
+    "unofficial": "All trademarks, place names and photos belong to their respective owners.",
+    "dataSource": "Weather data © Open-Meteo. Map data © Google. Photos via Google Maps contributors.",
+    "copyright": "© 2026 Patuxai Visitor Guide. Made with care for travelers."
+  },
+  "sources": {
+    "label": "Sources",
+    "heading": "Sources & corrections",
+    "intro": "We aim for accuracy. The information here is drawn from public references and local knowledge.",
+    "photoTitle": "Photo credits",
+    "photoItems": [
+      { "text": "Patuxai photographs", "url": "https://maps.app.goo.gl/MU46frN67mD9RdgAA", "linkLabel": "Google Maps" },
+      { "text": "Reference overview", "url": "https://en.wikipedia.org/wiki/Patuxai", "linkLabel": "Wikipedia" }
+    ],
+    "factTitle": "Key facts",
+    "factText": "Built 1957–1968; commemorates Lao independence; located on Lane Xang Avenue, Vientiane. Hours and fees are indicative and may change — verify on site.",
+    "correctionTitle": "Spot an error?",
+    "correctionText": "This guide is community-maintained. If you notice outdated or incorrect information, please let us know.",
+    "correctionMailto": "mailto:hello@patuxai.com?subject=Patuxai%20guide%20correction",
+    "correctionCta": "Send a correction",
+    "copyright": "© 2026 Patuxai Visitor Guide."
+  },
+  "legal": {
+    "privacy-policy": {
+      "title": "Privacy Policy",
+      "body": [
+        "We collect no personal information unless you voluntarily contact us. This site uses privacy-respecting, anonymous analytics only.",
+        "No advertising trackers are loaded. Weather data is fetched live from Open-Meteo without identifying you.",
+        "If you email us, your address is used solely to respond and is never shared or sold."
+      ]
+    },
+    "terms-of-service": {
+      "title": "Terms of Service",
+      "body": [
+        "This is a non-profit, educational guide. Content is provided 'as is' without warranty.",
+        "Hours, fees and accessibility details may change — always confirm with official sources before travel.",
+        "Trademarks and place names belong to their respective owners."
+      ]
+    },
+    "cookie-settings": {
+      "title": "Cookie Settings",
+      "body": [
+        "This site does not use advertising or cross-site tracking cookies.",
+        "Anonymous, privacy-friendly analytics may be used to improve the guide. You can disable these in your browser.",
+        "No personal data is stored on our servers."
+      ]
+    }
+  }
+}

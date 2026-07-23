@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getI18n, languagesList, defaultLang } from '../i18n/ui';
+
+export function getStaticPaths() {
+  return languagesList.map((lang) => ({ params: { lang } }));
+}
+
+const home: Record<string, string> = {
+  lo: 'ກັບໄປໜ້າຫຼັກ',
+  en: 'Back to home',
+  zh: '返回首页',
+};
+
+const labels: Record<string, { title: string; text: string }> = {
+  lo: {
+    title: 'ບໍ່ພົບໜ້ານີ້',
+    text: 'ໜ້າທີ່ທ່ານຊອກຫາອາດຈະຖືກຍ້າຍ ຫຼືລຶບອອກແລ້ວ. ກະລຸນາກັບໄປໜ້າຫຼັກ.',
+  },
+  en: {
+    title: 'Page not found',
+    text: 'The page you are looking for may have moved or been removed. Please head back to the homepage.',
+  },
+  zh: {
+    title: '页面未找到',
+    text: '您要找的页面可能已被移动或删除。请返回首页。',
+  },
+};
+
+const { lang: rawLang } = Astro.params;
+const lang = labels[rawLang] ? rawLang : defaultLang;
+const { messages } = getI18n(lang);
+---
+
+<BaseLayout
+  title={`${labels[lang].title} · ${messages.footer.brand.name}`}
+  description={labels[lang].text}
+>
+  <section class="min-h-[70vh] flex items-center justify-center bg-ivory text-ink">
+    <div class="text-center px-5 max-w-xl">
+      <p class="font-hand text-gold text-2xl">404</p>
+      <h1 class="font-display text-3xl md:text-4xl text-teak mt-2">{labels[lang].title}</h1>
+      <p class="mt-4 text-ink/75">{labels[lang].text}</p>
+      <a
+        href={`/${lang}/`}
+        class="inline-block mt-8 bg-teak text-ivory font-semibold px-6 py-3 rounded-full hover:bg-teak/90 transition-colors"
+      >
+        {home[lang]}
+      </a>
+    </div>
+  </section>
+</BaseLayout>
