@@ -231,6 +231,26 @@ const guideImgs = [
       </div>
     )}
 
+    <!-- Climbing tips -->
+    {guide.climbTip && (
+      <div class="mt-14 rounded-2xl border border-orange-300 bg-orange-50 p-6 max-w-4xl shadow-sm">
+        <h3 class="font-display text-xl text-orange-800 flex items-center gap-2">
+          <span aria-hidden="true">⚠</span> {guide.climbTip.title}
+        </h3>
+        <p class="mt-2 text-sm text-orange-900/85 leading-relaxed">{guide.climbTip.text}</p>
+      </div>
+    )}
+
+    <!-- Etiquette -->
+    {guide.etiquette && (
+      <div class="mt-8 rounded-2xl border border-teal-300 bg-teal-50 p-6 max-w-4xl shadow-sm">
+        <h3 class="font-display text-xl text-teal-800 flex items-center gap-2">
+          <span aria-hidden="true">👕</span> {guide.etiquette.title}
+        </h3>
+        <p class="mt-2 text-sm text-teal-900/85 leading-relaxed">{guide.etiquette.text}</p>
+      </div>
+    )}
+
     <!-- FAQ -->
     <div class="mt-14 max-w-3xl">
       <h3 class="font-display text-2xl text-teak mb-5">{guide.faqTitle}</h3>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  messages: Record<string, any>;
+}
+const { messages } = Astro.props;
+const compare = messages.legacy?.compare;
+---
+
+{compare && (
+  <section id="compare" class="py-20 bg-ivory text-ink">
+    <div class="max-w-7xl mx-auto px-5">
+      <p class="font-hand text-gold text-xl md:text-2xl">{messages.legacy.label}</p>
+      <h2 class="font-display font-semibold text-3xl md:text-5xl text-teak mt-2">{compare.title}</h2>
+      <p class="mt-4 max-w-2xl text-ink/80">{compare.intro}</p>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-4 md:gap-6">
+        <!-- headers -->
+        <div class="hidden md:flex items-center rounded-2xl bg-teak text-ivory font-display text-xl px-6 py-4 shadow-sm">{compare.headExternal}</div>
+        <div class="hidden md:flex items-center rounded-2xl bg-gold text-teak font-display text-xl px-6 py-4 shadow-sm">{compare.headLao}</div>
+
+        {compare.rows.map((r: { external: string; lao: string }) => (
+          <div class="contents">
+            <div class="rounded-2xl border border-teak/30 bg-white/60 p-5">
+              <p class="text-[11px] uppercase tracking-wide text-teak/50 mb-1 md:hidden">→ {compare.headExternal}</p>
+              <p class="font-medium text-teak">{r.external}</p>
+            </div>
+            <div class="rounded-2xl border border-gold/40 bg-gold/10 p-5">
+              <p class="text-[11px] uppercase tracking-wide text-gold/60 mb-1 md:hidden">→ {compare.headLao}</p>
+              <p class="font-medium text-teak">{r.lao}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

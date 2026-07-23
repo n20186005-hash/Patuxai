@@ -15,6 +15,7 @@
     "titleMain": "Patuxai",
     "titleAccent": "Victory Gate",
     "subtitle": "Vientiane's monumental war memorial — a Lao reimagining of the Arc de Triomphe, crowned with mythical kinnari and opened to panoramic city views.",
+    "hook": "Where French Classicism Meets Lao Mythology.",
     "cta1": "Read the guide",
     "cta2": "Open in Maps",
     "quickNav": [
@@ -82,7 +83,8 @@
     "blocks": [
       { "title": "Independence memorial", "text": "After independence from France, the government began a monument commemorating those who died for freedom. Construction started around 1957." },
       { "title": "The 'vertical runway'", "text": "The US donated cement intended for a new airport runway; it was used for the monument instead — earning the nickname 'the vertical runway'." },
-      { "title": "Completed 1968", "text": "The monument was finished around 1968 and later renamed Patuxai ('Victory Gate') after the 1975 takeover by the Pathet Lao." }
+      { "title": "Completed 1968", "text": "The monument was finished around 1968 and later renamed Patuxai ('Victory Gate') after the 1975 takeover by the Pathet Lao." },
+      { "title": "Designer Tham Sayasithsena", "text": "The monument was designed by Tham Sayasithsena, a self-taught Lao military officer-architect, who completed a scheme blending French monumental form with Lao decorative vocabulary using limited machinery." }
     ],
     "legend": {
       "title": "Why 'Victory Gate'?",
@@ -137,13 +139,13 @@
     },
     "pilgrimage": {
       "title": "A visitor's route through Patuxai",
-      "intro": "Suggested stops as you explore, from ground to summit.",
+      "intro": "Suggested stops as you explore, from ground to summit. Inside, the tower actually has 7 levels linked by a spiral stair.",
       "stations": [
-        { "num": "1", "name": "Ground arches", "desc": "Walk beneath the four arches and read the independence inscriptions." },
-        { "num": "2", "name": "Inner staircases", "desc": "Climb the steep spiral stairs (a small fee applies at the top)." },
-        { "num": "3", "name": "Gift shops & museum", "desc": "Lower galleries hold small stalls and a modest museum." },
-        { "num": "4", "name": "Top deck", "desc": "Reach the open rooftop for the panorama and the kinnari spires up close." },
-        { "num": "5", "name": "Patuxai Park", "desc": "Finish at the fountains and gardens across the boulevard." }
+        { "num": "1", "name": "Ground arches (Level 1)", "desc": "Walk beneath the four arches, read the independence inscriptions, and look up at the Lao mythological reliefs on the spandrels." },
+        { "num": "2", "name": "Inner spiral stair", "desc": "Climb the narrow spiral stairs — there is no elevator, so pace yourself." },
+        { "num": "3", "name": "Levels 2–5: museum & crafts", "desc": "The middle levels hold a Lao martyrs' memorial and spaces for traditional handicrafts." },
+        { "num": "4", "name": "Levels 6–7: deck & spire", "desc": "The top platform and spire bring you close to the kinnari and the 360° view of Vientiane." },
+        { "num": "5", "name": "Patuxai Park", "desc": "Finish at the fountain gardens across the boulevard; the musical fountain in front was donated by China in 2004 and is a favorite evening spot for locals." }
       ]
     },
     "timeline": {
@@ -153,6 +155,17 @@
         { "date": "1960s", "title": "The 'runway cement'", "place": "Vientiane", "desc": "US-donated cement intended for an airport is used for the structure." },
         { "date": "1968", "title": "Completion", "place": "Vientiane", "desc": "The monument is finished and opened to the public." },
         { "date": "1975", "title": "Renamed Patuxai", "place": "Vientiane", "desc": "After the revolution, it is renamed 'Victory Gate'." }
+      ]
+    },
+    "compare": {
+      "title": "French shell, Lao soul",
+      "intro": "Spot the Lao soul beneath the French triumphal-arch shell at a glance.",
+      "headExternal": "Outside: a French triumphal arch",
+      "headLao": "Details: Lao heritage",
+      "rows": [
+        { "external": "Symmetric giant arches on four sides", "lao": "Crowns topped with kinnari — half-bird, half-woman beings" },
+        { "external": "Axis along Champs-Élysées-style Lane Xang Avenue", "lao": "Naga serpent balustrades guarding the stairways" },
+        { "external": "Massive concrete monumental structure", "lao": "Spire finished with lotus and stupa forms" }
       ]
     }
   },
@@ -268,6 +281,14 @@
         { "title": "Tower", "desc": "Only via steep spiral stairs; not suitable for mobility aids. Views are also enjoyable from the park." },
         { "title": "Restrooms", "desc": "Public toilets are available near the entrance and park." }
       ]
+    },
+    "climbTip": {
+      "title": "⚠ Climbing tips",
+      "text": "There is no elevator; you climb 150+ narrow spiral steps. Midday to 15:00 the top is unshaded and the concrete and metal get very hot. Climb after 16:30 for cooler air and better light."
+    },
+    "etiquette": {
+      "title": "👕 Etiquette",
+      "text": "Although rich with Buddhist imagery, Patuxai is a secular national monument, not a wat (temple) — shorts are fine. As a national symbol, modest dress is still appreciated."
     },
     "faqTitle": "Frequently asked questions",
     "faqs": [
