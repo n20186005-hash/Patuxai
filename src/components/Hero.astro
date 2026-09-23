@@ -46,7 +46,7 @@ const weatherMap = Object.fromEntries(
 ---
 
 <section id="home" class="relative min-h-screen flex items-end overflow-hidden">
-  <img src={heroImg} alt={main} class="absolute inset-0 w-full h-full object-cover" />
+  <img src={heroImg} alt={`${main} — ${siteConfig.city[lang]}, ${siteConfig.country[lang]}`} class="absolute inset-0 w-full h-full object-cover" />
   <div class="absolute inset-0 bg-gradient-to-t from-teakDeep via-teakDeep/70 to-teak/40"></div>
   <div class="hero-glow absolute inset-0"></div>
 

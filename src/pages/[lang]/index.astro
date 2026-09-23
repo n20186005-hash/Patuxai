@@ -13,8 +13,9 @@ import Sources from '../../components/Sources.astro';
 import Gallery from '../../components/Gallery.astro';
 import Reviews from '../../components/Reviews.astro';
 import MapSection from '../../components/MapSection.astro';
+import WeatherSection from '../../components/WeatherSection.astro';
 import Footer from '../../components/Footer.astro';
-import { getI18n } from '../../i18n/ui';
+import { getI18n, type Lang } from '../../i18n/ui';
 
 export async function getStaticPaths() {
   return languagesList.map((lang) => ({ params: { lang } }));
@@ -38,6 +39,7 @@ const { lang, messages } = await getI18n(paramLang);
     <Reviews messages={messages} />
     <Sources messages={messages} />
     <MapSection lang={lang} messages={messages} />
+    <WeatherSection lang={lang} messages={messages} />
   </main>
   <Footer lang={lang} messages={messages} />
 </BaseLayout>

@@ -14,17 +14,37 @@ const canonical = `${siteConfig.domain}/${lang}/`;
 
 const faqs = (messages && messages.guide && messages.guide.faqs) ? messages.guide.faqs : [];
 
+// Entity-focused description for structured data (mirrors the SEO template).
+const entityDescription: Record<Lang, string> = {
+  lo: `ຄູ່ມືຜູ້ຢ້ຽມຢາມແບບເຕັມຂອງ ${siteConfig.name.lo} ໃນ${siteConfig.city.lo}, ${siteConfig.stateProvince.lo}, ${siteConfig.country.lo}.`,
+  en: `Comprehensive visitor guide to ${siteConfig.name.en} (Victory Gate) in ${siteConfig.city.en}, ${siteConfig.stateProvince.en}, ${siteConfig.country.en}.`,
+  zh: `${siteConfig.name.zh}（${siteConfig.city.zh}）完整游客指南——位于${siteConfig.stateProvince.zh}的${siteConfig.country.zh}。`,
+};
+
 const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'TouristAttraction',
+    '@id': `${siteConfig.domain}/#attraction`,
     name: siteConfig.name[lang],
-    description,
-    image: `${siteConfig.domain}${siteConfig.ogImage}`,
+    alternateName: [
+      siteConfig.nameShort[lang],
+      'Patuxai',
+      'Patuxay',
+      'Patuxai Victory Gate',
+      'Patuxai Victory Monument',
+      `${siteConfig.city.en} ${siteConfig.name.en}`,
+    ],
+    description: entityDescription[lang],
     url: canonical,
+    image: `${siteConfig.domain}${siteConfig.ogImage}`,
+    isAccessibleForFree: siteConfig.isAccessibleForFree,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: siteConfig.address,
+      streetAddress: siteConfig.streetAddress,
+      addressLocality: siteConfig.city[lang],
+      addressRegion: siteConfig.stateProvince[lang],
+      postalCode: siteConfig.postalCode,
       addressCountry: 'LA',
     },
     geo: {
@@ -32,6 +52,7 @@ const jsonLd = [
       latitude: siteConfig.coords.lat,
       longitude: siteConfig.coords.lng,
     },
+    hasMap: siteConfig.mapsUrl,
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: siteConfig.rating,
@@ -73,12 +94,21 @@ const jsonLd = [
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`${siteConfig.domain}${siteConfig.ogImage}`} />
+    <meta property="og:image:alt" content={`${siteConfig.name[lang]} — ${siteConfig.city[lang]}, ${siteConfig.country[lang]}`} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#7a5c2e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content={siteConfig.nameShort[lang]} />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
     {languagesList.map((l) => (
       <link rel="alternate" hreflang={htmlLang[l]} href={`${siteConfig.domain}/${l}/`} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteConfig.domain}/lo/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteConfig.domain}/en/`} />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP"></script>
@@ -97,6 +127,15 @@ const jsonLd = [
       rel="stylesheet"
     />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- PWA service worker registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </head>
   <body class="grain">
     <slot />

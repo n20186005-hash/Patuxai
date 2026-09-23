@@ -1,0 +1,313 @@
+---
+import { siteConfig } from '../config';
+import type { Lang } from '../i18n/ui';
+import {
+  fetchWeather,
+  weatherCodeInfo,
+  kmhToBeaufort,
+  windName,
+  windDirectionText,
+  uvLevel,
+  buildAdvice,
+  type WeatherData,
+} from '../lib/weather';
+
+interface Props {
+  lang: Lang;
+  messages: Record<string, any>;
+}
+const { lang, messages } = Astro.props;
+const w = messages.weather;
+const t = w.advice;
+
+// Server-side snapshot at build time (resilient: null if network is blocked).
+const snapshot: WeatherData | null = await fetchWeather();
+
+// Per-language weekday short names for the 7-day forecast.
+const WD: Record<Lang, string[]> = {
+  lo: ['ອາ.', 'ຈ.', 'ອ.', 'ພ.', 'ພະ.', 'ສຸ.', 'ເສ.'],
+  en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+  zh: ['日', '一', '二', '三', '四', '五', '六'],
+};
+
+function dayLabel(dateStr: string): string {
+  const d = new Date(dateStr + 'T00:00:00');
+  const today = new Date();
+  const isToday = d.toDateString() === today.toDateString();
+  if (isToday) return w.today;
+  return WD[lang][d.getDay()];
+}
+
+function renderForecast(data: WeatherData) {
+  return data.days
+    .map((d, i) => {
+      const info = weatherCodeInfo(d.code, lang);
+      const uv = uvLevel(d.uv, lang);
+      return `
+      <div class="flex items-center justify-between px-3 py-2 ${i % 2 ? 'bg-teak/5' : ''} rounded-lg">
+        <span class="w-12 text-sm text-teak font-medium">${dayLabel(d.date)}</span>
+        <span class="text-xl">${info.icon}</span>
+        <span class="flex-1 px-2 text-sm text-ink/70">${info.label}</span>
+        <span class="text-sm tabular-nums text-ink/60 w-10 text-right">${Math.round(d.precipProb)}%</span>
+        <span class="text-sm tabular-nums font-semibold text-teak whitespace-nowrap">${Math.round(d.tmin)}° / ${Math.round(d.tmax)}°</span>
+        <span class="ml-2 text-xs uv-${uv.level} uppercase tracking-wide hidden sm:inline">${uv.label}</span>
+      </div>`;
+    })
+    .join('');
+}
+
+// Today's one-line summary shown in the current card (e.g. 晴 24–33° · 紫外线强 · 微风).
+function todaySummary(data: WeatherData): string {
+  const d = data.days[0];
+  const cond = weatherCodeInfo(d.code, lang).label;
+  const uv = uvLevel(d.uv, lang).label;
+  const wind = windName(kmhToBeaufort(d.windKmh), lang);
+  return `${cond} ${Math.round(d.tmin)}–${Math.round(d.tmax)}° · 紫外线${uv} · ${wind}`;
+}
+
+const initialForecast = snapshot ? renderForecast(snapshot) : '';
+const initialAdvice = snapshot ? buildAdvice(snapshot, t) : null;
+const initialSummary = snapshot ? todaySummary(snapshot) : '';
+---
+
+<section id="weather" class="py-20 bg-ivory text-ink">
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="font-hand text-gold text-xl md:text-2xl">{w.label}</p>
+    <h2 class="font-display font-semibold text-3xl md:text-5xl text-teak mt-2">{w.heading}</h2>
+    <p class="mt-4 max-w-2xl text-ink/80">{w.lead}</p>
+
+    <div class="mt-10 grid lg:grid-cols-3 gap-6">
+      <!-- Current conditions -->
+      <div class="rounded-2xl border border-gold/30 bg-white/60 p-6 shadow-sm">
+        <div class="flex items-center justify-between">
+          <span class="font-display text-gold text-xl">{w.now}</span>
+          <span id="wx-updated" class="text-xs text-ink/50">{w.snapshot}</span>
+        </div>
+        <div class="mt-3 flex items-end gap-3">
+          <span id="wx-icon" class="text-4xl">{snapshot ? weatherCodeInfo(snapshot.now.code, lang).icon : '🌡️'}</span>
+          <span id="wx-temp" class="font-display text-5xl font-semibold text-teak">{snapshot ? Math.round(snapshot.now.temp) + '°' : '--°'}</span>
+          <span id="wx-cond" class="pb-1 text-sm text-ink/70">{snapshot ? weatherCodeInfo(snapshot.now.code, lang).label : w.loading}</span>
+        </div>
+        <p id="wx-summary" class="mt-2 text-xs text-ink/55">{initialSummary}</p>
+        <dl class="mt-4 grid grid-cols-2 gap-3 text-sm">
+          <div class="rounded-xl bg-teak/5 p-3"><dt class="text-ink/55">{w.feelsLike}</dt><dd id="wx-feels" class="font-semibold text-teak">{snapshot ? Math.round(snapshot.now.feels) + '°' : '--°'}</dd></div>
+          <div class="rounded-xl bg-teak/5 p-3"><dt class="text-ink/55">{w.humidity}</dt><dd id="wx-hum" class="font-semibold text-teak">{snapshot ? Math.round(snapshot.now.humidity) + '%' : '--%'}</dd></div>
+          <div class="rounded-xl bg-teak/5 p-3"><dt class="text-ink/55">{w.wind}</dt><dd id="wx-wind" class="font-semibold text-teak">{snapshot ? `${Math.round(snapshot.now.windKmh)} km/h ${windDirectionText(snapshot.now.windDir, lang)}` : '--'}</dd></div>
+          <div class="rounded-xl bg-teak/5 p-3"><dt class="text-ink/55">{w.precip}</dt><dd id="wx-rain" class="font-semibold text-teak">{snapshot ? Math.round(snapshot.days[0]?.precipProb ?? 0) + '%' : '--%'}</dd></div>
+        </dl>
+        <p class="mt-3 text-xs text-ink/50">{w.unitsNote}</p>
+      </div>
+
+      <!-- 7-day forecast -->
+      <div class="rounded-2xl border border-gold/30 bg-white/60 p-6 shadow-sm lg:col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-display text-gold text-xl">{w.forecast}</span>
+          <span class="text-xs text-ink/50">{w.forecastNote}</span>
+        </div>
+        <div id="wx-forecast" class="space-y-1">
+          {snapshot ? (
+            <Fragment set:html={initialForecast} />
+          ) : (
+            <p id="wx-empty" class="text-sm text-ink/60">{w.loading}</p>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Alerts: official warnings (red, top) + condition-based risks (amber) -->
+    <div id="wx-alerts" class="mt-6 space-y-3">
+      {initialAdvice && (
+        <>
+          {initialAdvice.warnings.map((warn) => (
+            <div class="rounded-2xl border border-red-400 bg-red-50 p-4">
+              <p class="text-sm text-red-900"><span class="font-semibold">🚨 {w.risk}:</span> {warn}</p>
+            </div>
+          ))}
+          {initialAdvice.risks.length > 0 && (
+            <div class="rounded-2xl border border-amber-300 bg-amber-50 p-4">
+              <p class="text-sm font-semibold text-amber-900 mb-1">⚠️ {w.risk}</p>
+              <ul class="space-y-1 text-sm text-amber-900">
+                {initialAdvice.risks.map((r) => <li>• {r}</li>)}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+
+    <!-- Dynamic advice: only categories with content are rendered -->
+    <div id="wx-advice" class="mt-4 grid md:grid-cols-3 gap-4">
+      {initialAdvice && (
+        <>
+          {initialAdvice.outfit.length > 0 && (
+            <div class="rounded-2xl border border-gold/25 bg-teak/5 p-5">
+              <h3 class="font-display text-teak font-semibold mb-2">👕 {w.outfit}</h3>
+              <ul class="space-y-1 text-sm text-ink/75">
+                {initialAdvice.outfit.map((s) => <li>• {s}</li>)}
+              </ul>
+            </div>
+          )}
+          {initialAdvice.activity.length > 0 && (
+            <div class="rounded-2xl border border-gold/25 bg-teak/5 p-5">
+              <h3 class="font-display text-teak font-semibold mb-2">🗺️ {w.activity}</h3>
+              <ul class="space-y-1 text-sm text-ink/75">
+                {initialAdvice.activity.map((s) => <li>• {s}</li>)}
+              </ul>
+            </div>
+          )}
+          {initialAdvice.items.length > 0 && (
+            <div class="rounded-2xl border border-gold/25 bg-teak/5 p-5">
+              <h3 class="font-display text-teak font-semibold mb-2">🎒 {w.items}</h3>
+              <ul class="space-y-1 text-sm text-ink/75">
+                {initialAdvice.items.map((s) => <li>• {s}</li>)}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+
+    <p id="wx-error" class="hidden mt-4 text-sm text-ink/60">{w.error}</p>
+  </div>
+</section>
+
+<script is:inline define:vars={{ lang, w, WD, siteConfig }}>
+  (function () {
+    const WD = WD[lang];
+    const t = w.advice;
+
+    function codeInfo(code) {
+      const MAP = {
+        0:['☀️','Clear sky','ທ້ອງຟ້າໂປລ່ງ','晴'],1:['🌤️','Mainly clear','ເກືອບໂປລ່ງ','晴间多云'],2:['⛅','Partly cloudy','ເມຄບາງສ່ວນ','局部多云'],3:['☁️','Overcast','ເມຄປົກຫຸ້ມ','阴'],
+        45:['🌫️','Fog','ຫມອກ','雾'],48:['🌫️','Rime fog','ຫມອກແຂັງ','雾凇'],51:['🌦️','Light drizzle','ຝົນພິມເລັກນ້ອຍ','小毛毛雨'],53:['🌦️','Drizzle','ຝົນພິມ','毛毛雨'],55:['🌧️','Dense drizzle','ຝົນພິມໜັກ','浓毛毛雨'],
+        61:['🌧️','Light rain','ຝົນຕົກເລັກນ້ອຍ','小雨'],63:['🌧️','Rain','ຝົນຕົກປານກາງ','中雨'],65:['🌧️','Heavy rain','ຝົນຕົກໜັກ','大雨'],71:['🌨️','Light snow','ຫິມະຕົກເລັກນ້ອຍ','小雪'],73:['🌨️','Snow','ຫິມະຕົກ','中雪'],75:['❄️','Heavy snow','ຫິມະຕົກໜັກ','大雪'],
+        80:['🌦️','Rain showers','ຝົນຕົກເປັນໄລຍະ','阵雨'],81:['🌧️','Rain showers','ຝົນຕົກເປັນໄລຍະ','阵雨'],82:['⛈️','Violent showers','ຝົນຕົກແຮງ','强阵雨'],95:['⛈️','Thunderstorm','ຟ້າຄະນອງ','雷阵雨'],96:['⛈️','Thunderstorm w/ hail','ຟ້າຄະນອງລູກເຫບ','雷阵雨伴冰雹'],99:['⛈️','Severe thunderstorm','ຟ້າຄະນອງແຮງ','强雷暴']
+      };
+      const i = MAP[code] || MAP[3];
+      return { icon: i[0], label: i[lang === 'lo' ? 2 : lang === 'zh' ? 3 : 1] };
+    }
+    function uvInfo(uv) {
+      if (uv < 3) return { label: lang==='zh'?'低':lang==='lo'?'ຕ່ຳ':'Low', level: 'low' };
+      if (uv < 6) return { label: lang==='zh'?'中等':lang==='lo'?'ປານກາງ':'Moderate', level: 'mod' };
+      if (uv < 8) return { label: lang==='zh'?'高':lang==='lo'?'ສູງ':'High', level: 'high' };
+      if (uv < 11) return { label: lang==='zh'?'很高':lang==='lo'?'ສູງຫຼາຍ':'Very high', level: 'vhigh' };
+      return { label: lang==='zh'?'极高':lang==='lo'?'ສູງສຸດ':'Extreme', level: 'extreme' };
+    }
+    function kmhToBeaufort(kmh){const s=[1,6,12,20,29,39,50,62,75,89,103,118];for(let i=0;i<s.length;i++){if(kmh<s[i])return i;}return 12;}
+    function windName(level){
+      const n={lo:['ສະຫງົບ','ຄົນລົມເລັກນ້ອຍ','ລົມເລັກນ້ອຍ','ລົມອ່ອນ','ລົມປານກາງ','ລົມປານກາງ','ລົມແຮງ','ລົມແຮງ','ລົມແຮງຫຼາຍ','ພະຍຸ','ພະຍຸແຮງ','ພະຍຸແຮງຫຼາຍ','ພະຍຸເຮັດລາຍ'],en:['Calm','Light air','Light breeze','Gentle breeze','Moderate breeze','Fresh breeze','Strong breeze','Near gale','Gale','Strong gale','Storm','Violent storm','Hurricane'],zh:['无风','软风','轻风','微风','和风','清劲风','强风','疾风','大风','烈风','狂风','暴风','飓风']};
+      return n[lang][Math.min(level,12)];
+    }
+    function dirText(deg){
+      const d = lang==='lo'?['ເໜືອ','ອຽດເໜືອອອກ','ອອກ','ອຽດອອກລຸ່ມ','ລຸ່ມ','ອຽດລຸ່ມຕະວັນຕົກ','ຕະວັນຕົກ','ອຽດຕະວັນຕົກເໜືອ']:lang==='zh'?['北','东北','东','东南','南','西南','西','西北']:['N','NE','E','SE','S','SW','W','NW'];
+      return d[Math.round(deg/45)%8];
+    }
+    function dayLabel(dateStr){
+      const d=new Date(dateStr+'T00:00:00');
+      const today=new Date();
+      if(d.toDateString()===today.toDateString()) return w.today;
+      return WD[d.getDay()];
+    }
+    function pad(n){return String(n).padStart(2,'0');}
+    function uniq(a){return Array.from(new Set(a)).filter(Boolean);}
+
+    // Mirror of weather.ts buildAdvice, operating on the raw Open-Meteo payload.
+    const LIGHT=new Set([51,53,55,61,80]);
+    const HEAVY=new Set([63,65,66,67,81,82]);
+    const STORM=new Set([95,96,99]);
+    const FOG=new Set([45,48]);
+    const CLEAR=new Set([0,1]);
+    function buildAdvice(data){
+      const dn=data.daily, c=data.current;
+      const code=dn.weather_code[0];
+      const nowCode=c.weather_code;
+      const tmax=dn.temperature_2m_max[0], tmin=dn.temperature_2m_min[0];
+      const diff=tmax-tmin;
+      const precipProb=dn.precipitation_probability_max[0]||0;
+      const uv=dn.uv_index_max[0]||0;
+      const bf=kmhToBeaufort(dn.wind_speed_10m_max[0]||0);
+      const isStorm=STORM.has(code)||STORM.has(nowCode);
+      const isHeavy=HEAVY.has(code);
+      const isLight=LIGHT.has(code);
+      const isFog=FOG.has(code);
+      const isClear=CLEAR.has(code);
+      const isOvercast=code===3;
+      const outfit=[],activity=[],items=[],risks=[];
+      if(isStorm){risks.push(t.stormRisk);activity.push(t.stormActivity);}
+      else if(isHeavy){risks.push(t.heavyRainRisk);activity.push(t.heavyRainActivity);items.push(t.heavyRainItems);}
+      if(bf>=7){risks.push(t.wind7Risk);activity.push(t.wind7Activity);}
+      if(isFog){risks.push(t.fogRisk);activity.push(t.fogActivity);items.push(t.fogItems);}
+      if(precipProb>=60 && !isStorm && !isHeavy){outfit.push(t.pProbHighOutfit);activity.push(t.pProbHighActivity);items.push(t.pProbHighItems);}
+      if(isLight && !isStorm){outfit.push(t.lightRainOutfit);activity.push(t.lightRainActivity);items.push(t.lightRainItems);}
+      if(tmax>=32){outfit.push(t.hotOutfit);activity.push(t.hotActivity);items.push(t.hotItems);}
+      if(uv>=5){outfit.push(t.uvOutfit);items.push(t.uvItems);}
+      if(diff>8)outfit.push(t.bigDiffOutfit);
+      if(tmax<=10){outfit.push(t.coldOutfit);items.push(t.coldItems);}
+      if(bf===5||bf===6){outfit.push(t.wind56Outfit);activity.push(t.wind56Activity);items.push(t.wind56Items);}
+      if(isClear){outfit.push(t.clearOutfit);activity.push(t.clearActivity);items.push(t.clearItems);}
+      if(isOvercast){outfit.push(t.overcastOutfit);activity.push(t.overcastActivity);}
+      if(outfit.length===0)outfit.push(t.comfortOutfit);
+      if(activity.length===0)activity.push(t.comfortActivity);
+      return {outfit:uniq(outfit),activity:uniq(activity),items:uniq(items),risks:uniq(risks),warnings:[]};
+    }
+
+    function renderAlerts(a){
+      let h='';
+      a.warnings.forEach(warn=>{h+=`<div class="rounded-2xl border border-red-400 bg-red-50 p-4"><p class="text-sm text-red-900"><span class="font-semibold">🚨 ${w.risk}:</span> ${warn}</p></div>`;});
+      if(a.risks.length){h+=`<div class="rounded-2xl border border-amber-300 bg-amber-50 p-4"><p class="text-sm font-semibold text-amber-900 mb-1">⚠️ ${w.risk}</p><ul class="space-y-1 text-sm text-amber-900">${a.risks.map(r=>'<li>• '+r+'</li>').join('')}</ul></div>`;}
+      return h;
+    }
+    function renderAdvice(a){
+      let h='';
+      if(a.outfit.length)h+=`<div class="rounded-2xl border border-gold/25 bg-teak/5 p-5"><h3 class="font-display text-teak font-semibold mb-2">👕 ${w.outfit}</h3><ul class="space-y-1 text-sm text-ink/75">${a.outfit.map(s=>'<li>• '+s+'</li>').join('')}</ul></div>`;
+      if(a.activity.length)h+=`<div class="rounded-2xl border border-gold/25 bg-teak/5 p-5"><h3 class="font-display text-teak font-semibold mb-2">🗺️ ${w.activity}</h3><ul class="space-y-1 text-sm text-ink/75">${a.activity.map(s=>'<li>• '+s+'</li>').join('')}</ul></div>`;
+      if(a.items.length)h+=`<div class="rounded-2xl border border-gold/25 bg-teak/5 p-5"><h3 class="font-display text-teak font-semibold mb-2">🎒 ${w.items}</h3><ul class="space-y-1 text-sm text-ink/75">${a.items.map(s=>'<li>• '+s+'</li>').join('')}</ul></div>`;
+      return h;
+    }
+
+    function render(data){
+      const c=data.current, dn=data.daily;
+      const ci=codeInfo(c.weather_code);
+      document.getElementById('wx-icon').textContent=ci.icon;
+      document.getElementById('wx-temp').textContent=Math.round(c.temperature_2m)+'°';
+      document.getElementById('wx-cond').textContent=ci.label;
+      document.getElementById('wx-feels').textContent=Math.round(c.apparent_temperature)+'°';
+      document.getElementById('wx-hum').textContent=Math.round(c.relative_humidity_2m)+'%';
+      document.getElementById('wx-wind').textContent=Math.round(c.wind_speed_10m)+' km/h '+dirText(c.wind_direction_10m);
+      document.getElementById('wx-rain').textContent=Math.round((dn.precipitation_probability_max&&dn.precipitation_probability_max[0])||0)+'%';
+      document.getElementById('wx-updated').textContent=w.live;
+
+      const cdn=codeInfo(dn.weather_code[0]);
+      const cuv=uvInfo(dn.uv_index_max[0]);
+      const cwind=windName(kmhToBeaufort(dn.wind_speed_10m_max[0]||0));
+      document.getElementById('wx-summary').textContent=`${cdn.label} ${Math.round(dn.temperature_2m_min[0])}–${Math.round(dn.temperature_2m_max[0])}° · 紫外线${cuv.label} · ${cwind}`;
+
+      const fc=document.getElementById('wx-forecast');
+      const empty=document.getElementById('wx-empty'); if(empty) empty.remove();
+      let html='';
+      dn.time.forEach((date,i)=>{
+        const info=codeInfo(dn.weather_code[i]);
+        const uv=uvInfo(dn.uv_index_max[i]);
+        const odd=i%2?' bg-teak/5':'';
+        html+=`<div class="flex items-center justify-between px-3 py-2${odd} rounded-lg">
+          <span class="w-12 text-sm text-teak font-medium">${dayLabel(date)}</span>
+          <span class="text-xl">${info.icon}</span>
+          <span class="flex-1 px-2 text-sm text-ink/70">${info.label}</span>
+          <span class="text-sm tabular-nums text-ink/60 w-10 text-right">${Math.round(dn.precipitation_probability_max[i])}%</span>
+          <span class="text-sm tabular-nums font-semibold text-teak whitespace-nowrap">${Math.round(dn.temperature_2m_min[i])}° / ${Math.round(dn.temperature_2m_max[i])}°</span>
+          <span class="ml-2 text-xs uv-${uv.level} uppercase tracking-wide hidden sm:inline">${uv.label}</span>
+        </div>`;
+      });
+      fc.innerHTML=html;
+
+      const a=buildAdvice(data);
+      document.getElementById('wx-alerts').innerHTML=renderAlerts(a);
+      document.getElementById('wx-advice').innerHTML=renderAdvice(a);
+    }
+
+    fetch('/api/weather')
+      .then(r=>r.json())
+      .then(d=>{ if(d && d.current && d.daily) render(d); })
+      .catch(()=>{ const e=document.getElementById('wx-error'); if(e) e.classList.remove('hidden'); });
+  })();
+</script>

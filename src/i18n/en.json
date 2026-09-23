@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Patuxai (Victory Gate), Vientiane | Visitor Guide, Hours & Photos",
+    "title": "Patuxai (Vientiane) — Visitor Guide, Hours & Photos",
     "description": "Plan your visit to Patuxai, Vientiane's monumental Victory Gate — Laos's answer to the Arc de Triomphe. Hours, tickets, how to get there, photo spots and traveler reviews.",
-    "keywords": "Patuxai, Victory Gate, Vientiane, Laos, monument, Arc de Triomphe, things to do in Vientiane"
+    "keywords": "Patuxai, Patuxay, Victory Gate, Vientiane, Laos, monument, Arc de Triomphe, things to do in Vientiane"
   },
   "nav": {
-    "home": "Home", "about": "About", "history": "History", "guide": "Visit Guide", "food": "Nearby Eats", "gallery": "Photos", "reviews": "Reviews", "map": "Map"
+    "home": "Home", "about": "About", "history": "History", "guide": "Visit Guide", "getting": "Getting there", "facilities": "Facilities", "weather": "Weather", "seasons": "Seasons", "itineraries": "Itineraries", "food": "Nearby Eats", "gallery": "Photos", "reviews": "Reviews", "responsibility": "Responsible visit", "map": "Map"
   },
   "header": {
-    "home": "Home", "about": "About", "history": "History", "guide": "Visit Guide", "food": "Nearby Eats", "gallery": "Photos", "reviews": "Reviews", "map": "Map"
+    "home": "Home", "about": "About", "history": "History", "guide": "Visit Guide", "getting": "Getting there", "facilities": "Facilities", "weather": "Weather", "seasons": "Seasons", "itineraries": "Itineraries", "food": "Nearby Eats", "gallery": "Photos", "reviews": "Reviews", "responsibility": "Responsible visit", "map": "Map"
   },
   "hero": {
     "eyebrow": "Vientiane · Laos",
@@ -33,7 +33,7 @@
     "boardEn": "Victory Gate · Vientiane",
     "plannerTitle": "Today at the Gate",
     "liveWeather": "Live weather",
-    "plannerNote": "Live conditions update automatically from open-meteo.com using the monument's exact coordinates.",
+    "plannerNote": "Live conditions update automatically using the monument's exact coordinates.",
     "defaultTemp": "--°",
     "defaultCond": "Loading…",
     "defaultWind": "Wind —",
@@ -296,7 +296,9 @@
       { "q": "How long should I spend?", "a": "About 45–90 minutes: 20 minutes at the base and gardens, plus the climb and rooftop." },
       { "q": "When is the best time to visit?", "a": "Late afternoon (16:30–18:30) for cooler air and sunset light; November–February for the most comfortable weather." },
       { "q": "Can I see it without climbing?", "a": "Yes — the arches, gardens and fountains are free and photogenic, and the view can be enjoyed from the park." },
-      { "q": "What should I wear?", "a": "Light, respectful clothing is fine; it is a civic monument, not a temple, so no strict dress code." }
+      { "q": "What should I wear?", "a": "Light, respectful clothing is fine; it is a civic monument, not a temple, so no strict dress code." },
+      { "q": "Where is Patuxai located?", "a": "Patuxai is located on Lane Xang Avenue in central Vientiane, Vientiane Capital, Laos — about 2 km east of the old town and a short ride from the Mekong riverfront." },
+      { "q": "What is there to see near Patuxai?", "a": "Near Patuxai you can easily visit That Luang (the Great Stupa), Wat Si Saket, Haw Phra Kaew, the Mekong riverfront, the COPE Visitor Centre and the Lao National Museum, all within a few kilometres." }
     ],
     "nearby": {
       "title": "Near Patuxai",
@@ -402,8 +404,14 @@
       { "label": "About", "href": "#about" },
       { "label": "History", "href": "#history" },
       { "label": "Visit Guide", "href": "#guide" },
+      { "label": "Getting there", "href": "#getting" },
+      { "label": "Facilities", "href": "#facilities" },
+      { "label": "Weather", "href": "#weather" },
+      { "label": "Seasons", "href": "#seasons" },
+      { "label": "Itineraries", "href": "#itineraries" },
       { "label": "Photos", "href": "#gallery" },
       { "label": "Reviews", "href": "#reviews" },
+      { "label": "Responsible visit", "href": "#responsibility" },
       { "label": "Location", "href": "#map" }
     ],
     "noteTitle": "Visit",
@@ -461,5 +469,166 @@
         "No personal data is stored on our servers."
       ]
     }
+  },
+  "weather": {
+    "label": "Weather",
+    "heading": "Current weather & 7-day forecast",
+    "lead": "Live conditions and the coming week's outlook for Patuxai and central Vientiane, so you can plan the best time to climb the tower and enjoy the park.",
+    "now": "Right now",
+    "today": "Today",
+    "feelsLike": "Feels like",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "precip": "Chance of rain",
+    "forecast": "7-day forecast",
+    "forecastNote": "Updated continuously",
+    "unitsNote": "Temperatures in °C · Wind in km/h",
+    "snapshot": "Snapshot",
+    "live": "Live",
+    "loading": "Loading forecast…",
+    "error": "Live weather is briefly unavailable. Vientiane is typically hot and humid, with a rainy season from May to October.",
+    "outfit": "What to wear",
+    "activity": "Best time to explore",
+    "items": "What to bring",
+    "risk": "Caution",
+    "advice": {
+      "pProbHighOutfit": "There's a good chance of rain — bring an umbrella or raincoat just in case.",
+      "pProbHighActivity": "Favor indoor spots; postpone hill walks and water activities.",
+      "pProbHighItems": "Umbrella / raincoat",
+      "lightRainOutfit": "Light rain — pavements get slippery, watch your step.",
+      "lightRainActivity": "Open-air activities are less fun in the drizzle; time them between showers.",
+      "lightRainItems": "Folding umbrella",
+      "heavyRainRisk": "Heavy rain — avoid valleys and low-lying areas.",
+      "heavyRainActivity": "Skip long outdoor visits; boat rides and cable cars may be suspended.",
+      "heavyRainItems": "Raincoat (skip the long umbrella — it's windy)",
+      "stormRisk": "Lightning risk — don't climb hills, swim, or shelter under trees.",
+      "stormActivity": "Water and open-air activities are likely closed; stay indoors.",
+      "hotOutfit": "It's hot — try to avoid being out at midday.",
+      "hotActivity": "Shorten outdoor time and rest in the shade.",
+      "hotItems": "Sun protection, plenty of water, heat-relief gear",
+      "uvOutfit": "Strong UV — protect your skin.",
+      "uvItems": "Sunscreen, sunglasses, sun hat",
+      "bigDiffOutfit": "Big day–night temperature swing — bring a layer you can add or remove.",
+      "coldOutfit": "It's cold — dress warmly.",
+      "coldItems": "Heavy coat, scarf",
+      "wind56Outfit": "Breezy — hold onto your hat.",
+      "wind56Activity": "Boat trips and some open-air rides may pause; check before you go.",
+      "wind56Items": "Hats blow away easily — skip loose, flowing dresses",
+      "wind7Risk": "Strong winds — stay clear of signs, cliffs and the riverfront edge.",
+      "wind7Activity": "Outdoor water activities are likely closed.",
+      "clearOutfit": "Clear skies — great for being outdoors.",
+      "clearActivity": "Perfect for sunrise/sunset views and the tower top.",
+      "clearItems": "Don't forget sun protection",
+      "overcastOutfit": "Soft light — ideal for photos.",
+      "overcastActivity": "No harsh sun — comfortable for long outdoor strolls.",
+      "fogRisk": "Poor visibility — ferries and flights may be delayed.",
+      "fogActivity": "Not a good day for viewpoints and distant views.",
+      "fogItems": "Face mask",
+      "comfortOutfit": "Mild weather — normal clothes are fine.",
+      "comfortActivity": "Good for outdoor exploring and the tower view.",
+      "warningTemplate": "【Weather alert】{name} issued — adjust your plans, avoid mountains, water and other risky areas, and watch the forecast closely."
+    }
+  },
+  "getting": {
+    "label": "Getting there",
+    "heading": "How to reach Patuxai",
+    "lead": "Patuxai sits on Lane Xang Avenue in central Vientiane, about 2 km east of the old town and a short ride from the Mekong riverfront. Here are the practical ways in.",
+    "timeLabel": "Time:",
+    "costLabel": "Cost:",
+    "modes": [
+      { "icon": "✈️", "title": "From Wattay International Airport", "time": "~15–20 min", "cost": "~60,000–100,000 LAK by car", "intro": "The airport is 4–5 km west. Prepaid or metered taxis and ride-hailing cars wait outside arrivals.", "steps": ["Exit the terminal and use the official taxi desk or a ride-hailing app.", "Agree the fare or start the meter before departure.", "Ask for 'Patuxai, Lane Xang Avenue' — most drivers know it."] },
+      { "icon": "🚌", "title": "City bus", "time": "~20–40 min", "cost": "a few thousand LAK", "intro": "Local city buses run along Lane Xang Avenue and nearby routes; the closest stops are a short walk from the gate.", "steps": ["Find a bus heading east on Lane Xang Avenue.", "Alight near the Patuxai / Lane Xang intersection.", "Walk through the park to the monument entrance."] },
+      { "icon": "🚕", "title": "Taxi & ride-hailing", "time": "~10–20 min from centre", "cost": "metered / app fare", "intro": "Metered taxis and ride-hailing cars are the easiest door-to-door option from hotels and the riverfront.", "steps": ["Book via a local ride app or hail a metered taxi.", "Show the driver the Lao or English name if needed.", "Most will drop you at the Avenue entrance."] },
+      { "icon": "🛺", "title": "Tuk-tuk & songthaew", "time": "~15–25 min", "cost": "negotiated fare", "intro": "Three-wheel tuk-tuks and shared songthaew pickups cruise the centre; agree the price before you board.", "steps": ["Negotiate a round-trip or waiting fare up front.", "Confirm the drop-off point at Patuxai.", "Arrange a pickup time if you want a return ride."] },
+      { "icon": "🚲", "title": "Cycling", "time": "~10–20 min", "cost": "free if you have a bike", "intro": "Vientiane is flat and bike-friendly; quiet streets make cycling pleasant in the cool season.", "steps": ["Follow Lane Xang Avenue east from the centre.", "Use the riverside path and connect via side streets.", "Bikes can be locked at the park edge."] },
+      { "icon": "🚶", "title": "On foot from the centre", "time": "~25–35 min", "cost": "free", "intro": "A flat, shaded walk east along Lane Xang Avenue is feasible in the cool morning or late afternoon.", "steps": ["Head east on Lane Xang Avenue.", "Pass the Ministry district and the wide boulevard.", "Arrive at the Patuxai park gates."] }
+    ],
+    "note": "We do not partner with or endorse any specific operator. Choose licensed, clearly-priced services and confirm fares before you travel."
+  },
+  "facilities": {
+    "label": "Facilities & services",
+    "heading": "Visitor facilities around Patuxai",
+    "lead": "The monument and its surrounding park are well set up for a relaxed visit. Below is a neutral overview of the practical services you'll find in the immediate area — we list types, not specific businesses.",
+    "items": [
+      { "icon": "🚻", "title": "Public restrooms (WC)", "desc": "Public toilets are available in Patuxai Park and near the fountain plaza; small upkeep fees may apply." },
+      { "icon": "🅿️", "title": "Parking", "desc": "Roadside and informal parking lines the Avenue and park edges; arrive early on weekends and festivals for space." },
+      { "icon": "🍜", "title": "Food & drink", "desc": "Snack stalls, small cafés and drinks vendors operate around the park, especially in the evening when the fountains run." },
+      { "icon": "🏨", "title": "Lodging", "desc": "The area is central, with hotels and guesthouses of every budget within a short walk or ride." },
+      { "icon": "🛒", "title": "Convenience & supermarket", "desc": "Mini-marts and larger convenience stores are scattered along Lane Xang Avenue for water, sun care and essentials." },
+      { "icon": "⛽", "title": "Fuel & EV charging", "desc": "Fuel stations and a growing number of EV charging points sit within a few kilometres along the main roads." },
+      { "icon": "🏥", "title": "Medical & pharmacy", "desc": "Pharmacies and clinics are nearby in the city; the main hospital is a short drive away for anything serious." },
+      { "icon": "💳", "title": "ATM & money", "desc": "ATMs and money-change counters are common in central Vientiane; carry some small cash for fees and stalls." },
+      { "icon": "♿", "title": "Accessibility", "desc": "The ground-level park, fountain plaza and arches are step-free and wheelchair friendly; the tower climb itself has steep stairs and no lift." }
+    ],
+    "note": "This is an independent guide. Listings describe service types only and are not recommendations or advertisements."
+  },
+  "seasons": {
+    "label": "Best time & seasons",
+    "heading": "Seasonal strategy for visiting Patuxai",
+    "lead": "Vientiane has a tropical monsoon climate with three broad seasons. The guidance below is built from long-term climate normals (30-year averages) so you can time your visit and pack sensibly.",
+    "table": {
+      "head": ["Season", "Months", "Typical weather", "Comfort", "Our recommendation"],
+      "rows": [
+        { "season": "Cool & dry", "months": "Nov – Feb", "weather": "Sunny days, low humidity, 20–30°C", "comfort": "Most comfortable", "rec": "Best overall time — clear skies and pleasant climbing weather." },
+        { "season": "Hot & dry", "months": "Mar – Apr", "weather": "Hot and hazy, up to 36°C", "comfort": "Hot midday", "rec": "Go early or at sunset; hydrate and use shade." },
+        { "season": "Wet / monsoon", "months": "May – Oct", "weather": "Afternoon showers, humid, 28–32°C", "comfort": "Muggy", "rec": "Lush and green; bring rain gear and avoid the open top in storms." }
+      ]
+    },
+    "composite": {
+      "climateTitle": "Weather",
+      "text": "Vientiane's rhythm is set by the monsoon: a cool dry winter, a hot spring, and a wet summer. Daytime temperatures stay warm year-round, but humidity and rainfall swing sharply. The monument's open upper decks are most enjoyable in the cool, dry months.",
+      "waterTitle": "Water in the park",
+      "water": "The Patuxai Park fountains and ornamental pond are maintained for display and cooling, not for swimming or drinking. Water quality is managed for aesthetics; please keep children and pets out of the water and never drink from decorative features.",
+      "wildlifeTitle": "Urban wildlife",
+      "wildlife": "The park is a small green refuge in the city. You may see monitor lizards, fruit bats at dusk, and many resident and migratory birds around the trees and pond. Observe wildlife from a distance and do not feed it."
+    },
+    "monthsTitle": "Typical monthly conditions",
+    "monthLabel": "Month", "tmaxLabel": "High", "tminLabel": "Low", "rainLabel": "Rain",
+    "months": [
+      { "month": "Jan", "tmax": 30, "tmin": 19, "rain": 12 },
+      { "month": "Feb", "tmax": 32, "tmin": 21, "rain": 16 },
+      { "month": "Mar", "tmax": 34, "tmin": 23, "rain": 36 },
+      { "month": "Apr", "tmax": 35, "tmin": 25, "rain": 80 },
+      { "month": "May", "tmax": 34, "tmin": 25, "rain": 190 },
+      { "month": "Jun", "tmax": 33, "tmin": 25, "rain": 230 },
+      { "month": "Jul", "tmax": 32, "tmin": 25, "rain": 250 },
+      { "month": "Aug", "tmax": 32, "tmin": 25, "rain": 260 },
+      { "month": "Sep", "tmax": 32, "tmin": 24, "rain": 230 },
+      { "month": "Oct", "tmax": 32, "tmin": 23, "rain": 120 },
+      { "month": "Nov", "tmax": 31, "tmin": 21, "rain": 40 },
+      { "month": "Dec", "tmax": 30, "tmin": 19, "rain": 14 }
+    ],
+    "monthsNote": "Approximate long-term normals for Vientiane; actual conditions vary year to year."
+  },
+  "itineraries": {
+    "label": "Suggested itineraries",
+    "heading": "Itineraries for every traveler",
+    "lead": "Whether you have an hour or a full day, here are neutral, flexible plans that pair Patuxai with nearby highlights.",
+    "byGroup": {
+      "title": "By traveler type",
+      "items": [
+        { "icon": "👨‍👩‍👧", "title": "Families with kids", "desc": "A relaxed loop with shade, snacks and the fountain show.", "stops": ["Stroll the park and watch the musical fountain.", "Climb the first galleries (skip the top if little legs tire).", "Picnic on the lawns and spot the park's lizards and birds."] },
+        { "icon": "📷", "title": "Photographers", "desc": "Chase the best light and the monument's Lao details.", "stops": ["Shoot the arches and kinnari carvings in morning light.", "Climb to the top deck for the 360° city view.", "Return at golden hour for warm facades and the sunset."] },
+        { "icon": "♿", "title": "Low-effort / accessible", "desc": "Enjoy Patuxai without the stair climb.", "stops": ["Explore the step-free ground arches and park.", "Relax at the fountain plaza with a drink.", "View the upper tower from below — no climb required."] }
+      ]
+    },
+    "byDuration": {
+      "title": "By time available",
+      "half": { "title": "Half-day (2–3 h)", "steps": ["Arrive mid-morning and walk the park.", "Climb the tower for the view.", "Coffee and photos at the fountain plaza.", "Short taxi or walk to That Dam or the riverfront."] },
+      "full": { "title": "Full-day (5–6 h)", "steps": ["Start at Patuxai and climb the tower.", "Visit That Luang, the Great Stupa, to the east.", "Lunch near the centre.", "See Wat Si Saket and Haw Phra Kaew.", "Finish with sunset on the Mekong riverfront."] }
+    }
+  },
+  "responsibility": {
+    "label": "Science & responsibility",
+    "heading": "Understanding Patuxai's environment",
+    "lead": "A short, non-commercial explainer on the park's water, wildlife and how to visit it responsibly — part of our educational, non-profit mission.",
+    "sections": [
+      { "icon": "💧", "title": "Water in the park", "text": "The fountains and pond are ornamental. They are treated for display, not for contact — keep children and pets out and never drink from them. During the dry season water levels drop; in the wet season the features run fuller." },
+      { "icon": "🦎", "title": "Urban wildlife", "text": "Patuxai Park is a pocket of habitat: monitor lizards bask on the lawns, fruit bats leave at dusk, and many bird species nest in the trees. Watch quietly and never feed wild animals." },
+      { "icon": "♻️", "title": "Leave no trace", "text": "Use the bins provided, take litter with you, and keep the park clean for the families who use it every evening." },
+      { "icon": "🏛️", "title": "Cultural respect", "text": "Patuxai is a war memorial honouring those who died for Laos's independence. Speak and behave respectfully, and follow any posted guidance." },
+      { "icon": "🌡️", "title": "Heat & sun safety", "text": "Vientiane is hot and humid most of the year. Drink water, use shade, and pace the seven-floor climb — the top deck is fully exposed." }
+    ],
+    "closing": "This guide is independent and non-profit. Our goal is to help you enjoy and understand Patuxai responsibly, not to sell anything."
   }
 }

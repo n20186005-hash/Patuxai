@@ -2,7 +2,7 @@
   "meta": {
     "title": "万象凯旋门（Patuxai）旅游指南 | 开放时间、门票、照片与攻略",
     "description": "规划你的万象凯旋门之旅——老挝的“巴黎凯旋门”。开放时间、登顶门票、交通方式、最佳拍照机位与游客真实评价，一网打尽。",
-    "keywords": "万象凯旋门, Patuxai, 凯旋门, 万象, 老挝, 纪念碑, 老挝旅游, 万象攻略"
+    "keywords": "万象凯旋门, Patuxai, Patuxay, 凯旋门, 万象, 老挝, 纪念碑, 老挝旅游, 万象攻略"
   },
   "nav": {
     "home": "首页", "about": "简介", "history": "历史", "guide": "游玩攻略", "food": "周边美食", "gallery": "照片", "reviews": "评价", "map": "地图"
@@ -296,7 +296,9 @@
       { "q": "建议停留多久？", "a": "约 45–90 分钟：基座与花园 20 分钟，加上登塔与顶层。" },
       { "q": "何时参观最好？", "a": "傍晚（16:30–18:30）气温舒适、日落光线好；11–2 月天气最宜人。" },
       { "q": "不登塔能看吗？", "a": "可以——拱门、花园与喷泉免费且出片，公园内也能赏景。" },
-      { "q": "着装有何要求？", "a": "轻便、得体的衣物即可；这是市政纪念碑而非寺庙，无严格着装规范。" }
+      { "q": "着装有何要求？", "a": "轻便、得体的衣物即可；这是市政纪念碑而非寺庙，无严格着装规范。" },
+      { "q": "凯旋门在哪里？", "a": "凯旋门位于老挝万象市中心的澜沧大道（Ave Lane Xang），距老城以东约 2 公里，离湄公河畔仅一小段车程。" },
+      { "q": "凯旋门周边还有什么可看？", "a": "凯旋门周边可顺道游览塔銮（大金塔）、西萨格寺、玉佛寺、湄公河畔、COPE 访客中心与老挝国家博物馆，均在数公里范围内。" }
     ],
     "nearby": {
       "title": "凯旋门周边",
@@ -435,6 +437,65 @@
     "correctionMailto": "mailto:n20186005@gmail.com?subject=Patuxai%20guide%20correction",
     "correctionCta": "提交纠错",
     "copyright": "© 2026 凯旋门游客指南。"
+  },
+  "weather": {
+    "label": "天气",
+    "heading": "实时天气与 7 日预报",
+    "lead": "凯旋门与万象市中心的实时实况与未来一周展望，帮你挑最好的时段登塔、逛公园。",
+    "now": "当前实况",
+    "today": "今天",
+    "feelsLike": "体感",
+    "humidity": "湿度",
+    "wind": "风力",
+    "precip": "降水概率",
+    "forecast": "7 日预报",
+    "forecastNote": "持续更新",
+    "unitsNote": "温度 °C · 风速 km/h",
+    "snapshot": "快照",
+    "live": "实时",
+    "loading": "加载天气中…",
+    "error": "实时天气暂时获取不到。万象通常炎热潮湿，5 月至 10 月为雨季。",
+    "outfit": "出行穿搭",
+    "activity": "游玩安排",
+    "items": "随身物品",
+    "risk": "风险提醒",
+    "advice": {
+      "pProbHighOutfit": "大概率会下雨，出门尽量带好雨具。",
+      "pProbHighActivity": "优先安排室内场馆，爬山、亲水游玩建议改期。",
+      "pProbHighItems": "雨伞 / 雨衣",
+      "lightRainOutfit": "有小雨，路面湿滑，走路注意防滑。",
+      "lightRainActivity": "露天项目体验较差，建议错峰或改室内。",
+      "lightRainItems": "折叠伞",
+      "heavyRainRisk": "降雨较强，避开山谷、低洼地带。",
+      "heavyRainActivity": "不建议长时间户外游玩，游船、缆车可能停运。",
+      "heavyRainItems": "雨衣（风大，不建议长柄伞）",
+      "stormRisk": "谨防雷电，不要登山、亲水戏水、在树下避雨。",
+      "stormActivity": "水上 / 露天项目大概率关闭，建议改室内。",
+      "hotOutfit": "气温较高，尽量避开正午外出。",
+      "hotActivity": "缩短户外游玩时间，多进室内休息。",
+      "hotItems": "防晒、充足饮用水、防暑用品",
+      "uvOutfit": "紫外线较强，注意防晒。",
+      "uvItems": "防晒霜、墨镜、遮阳帽",
+      "bigDiffOutfit": "昼夜温差大，备一件外套方便增减衣物。",
+      "coldOutfit": "气温偏低，注意防寒保暖。",
+      "coldItems": "厚外套、围巾",
+      "wind56Outfit": "风力偏大，注意防风。",
+      "wind56Activity": "游船、部分露天项目可能暂停，出行前先确认。",
+      "wind56Items": "帽子易被吹落，不建议穿宽松长裙",
+      "wind7Risk": "大风天气，远离广告牌、海边礁石等。",
+      "wind7Activity": "户外水上项目大概率关闭。",
+      "clearOutfit": "天气晴好，适合户外游览。",
+      "clearActivity": "适合看日出日落、登高望远。",
+      "clearItems": "记得防晒",
+      "overcastOutfit": "光线柔和，很适合拍照。",
+      "overcastActivity": "无暴晒，适合长时间户外逛游。",
+      "fogRisk": "能见度差，轮渡、航班容易延误。",
+      "fogActivity": "不适合登高观景。",
+      "fogItems": "口罩",
+      "comfortOutfit": "天气舒适，正常穿着即可。",
+      "comfortActivity": "适合户外游览，登塔看城景正合适。",
+      "warningTemplate": "【气象预警】{name} 已发布，建议调整行程，尽量避免前往山区、亲水等危险区域，密切关注天气变化。"
+    }
   },
   "legal": {
     "privacy-policy": {

@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  messages: Record<string, any>;
+}
+const { messages } = Astro.props;
+const r = messages.responsibility;
+---
+
+<section id="responsibility" class="py-20 bg-teak text-ivory">
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="font-hand text-gold text-xl md:text-2xl">{r.label}</p>
+    <h2 class="font-display font-semibold text-3xl md:text-5xl text-ivory mt-2">{r.heading}</h2>
+    <p class="mt-4 max-w-2xl text-ivory/80">{r.lead}</p>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-5">
+      {r.sections.map((s) => (
+        <div class="rounded-2xl bg-teakDeep/60 border border-gold/20 p-6">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">{s.icon}</span>
+            <h3 class="font-display text-lg text-goldBright font-semibold">{s.title}</h3>
+          </div>
+          <p class="text-sm text-ivory/80 leading-relaxed">{s.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-8 text-sm text-ivory/60 max-w-3xl">{r.closing}</p>
+  </div>
+</section>

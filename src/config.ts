@@ -18,6 +18,28 @@ export const siteConfig = {
   } as Record<Lang, string>,
   nameLocal: 'Patuxai · ປະຕູໄຊ · 万象凯旋门',
 
+  // Geographical entity hierarchy (per language) for SEO entity binding.
+  city: {
+    lo: 'ວຽງຈັນ',
+    en: 'Vientiane',
+    zh: '万象',
+  } as Record<Lang, string>,
+  stateProvince: {
+    lo: 'ນະຄອນຫຼວງວຽງຈັນ',
+    en: 'Vientiane Capital',
+    zh: '万象市',
+  } as Record<Lang, string>,
+  country: {
+    lo: 'ລາວ',
+    en: 'Laos',
+    zh: '老挝',
+  } as Record<Lang, string>,
+  postalCode: '01000',
+  // Street address without country (used in structured PostalAddress).
+  streetAddress: 'Ave Lane Xang, Vientiane',
+  // Public monument — free to enter the grounds and park.
+  isAccessibleForFree: true,
+
   // Actual Patuxai coordinates (Lane Xang Ave, Vientiane).
   coords: {
     lat: 17.9705363,

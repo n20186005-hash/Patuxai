@@ -149,3 +149,10 @@ body {
   font-size: 0.78rem;
   letter-spacing: 0.04em;
 }
+
+/* UV index severity colors (used by the weather module) */
+.uv-low { color: #3a7d44; }
+.uv-mod { color: #b5891f; }
+.uv-high { color: #d98324; }
+.uv-vhigh { color: #c0392b; }
+.uv-extreme { color: #7d1f1f; font-weight: 600; }
