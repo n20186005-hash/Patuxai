@@ -1,0 +1,31 @@
+---
+import { type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  messages: any;
+}
+const { lang, messages } = Astro.props;
+const t = messages.topics;
+const cards = [
+  { slug: 'visit', title: t.visit.cardTitle, desc: t.visit.cardDesc },
+  { slug: 'photos', title: t.photos.cardTitle, desc: t.photos.cardDesc },
+  { slug: 'getting-here', title: t.gettingHere.cardTitle, desc: t.gettingHere.cardDesc },
+];
+---
+
+<section id="guides" class="py-16 bg-white/40">
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="font-hand text-gold text-xl">{t.intro}</p>
+    <h2 class="font-display font-semibold text-2xl md:text-4xl text-teak mt-2">{t.intro}</h2>
+    <div class="grid md:grid-cols-3 gap-6 mt-8">
+      {cards.map((c) => (
+        <a href={`/${lang}/${c.slug}/`} class="group rounded-2xl border border-gold/25 bg-ivory p-6 hover:border-gold hover:shadow-md transition">
+          <div class="font-display text-teak font-semibold text-xl">{c.title}</div>
+          <p class="mt-2 text-sm text-ink/70">{c.desc}</p>
+          <span class="mt-4 inline-block text-sm text-gold group-hover:text-goldBright">→</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

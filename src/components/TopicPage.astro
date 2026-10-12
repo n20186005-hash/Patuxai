@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  messages: any;
+  topicKey: string;
+  path: string;
+}
+const { lang, messages, topicKey, path } = Astro.props;
+const t = messages.topics;
+const topic = t[topicKey];
+const nav = messages.nav;
+
+const topicSlugs = [
+  { slug: 'visit', key: 'visit' },
+  { slug: 'photos', key: 'photos' },
+  { slug: 'getting-here', key: 'gettingHere' },
+];
+const others = topicSlugs.filter((x) => x.key !== topicKey);
+---
+
+<BaseLayout lang={lang} title={topic.title} description={topic.description} messages={messages} path={path}>
+  <Header lang={lang} messages={messages} />
+  <main class="bg-ivory text-ink">
+    <article class="max-w-3xl mx-auto px-5 py-16">
+      <p class="font-hand text-gold text-xl">{t.intro}</p>
+      <h1 class="font-display font-semibold text-3xl md:text-5xl text-teak mt-2">{topic.h1}</h1>
+      <p class="mt-4 text-lg text-ink/80">{topic.lead}</p>
+      <a href={`/${lang}/`} class="inline-block mt-4 text-sm text-gold hover:text-goldBright">← {nav.home}</a>
+
+      {topic.sections.map((s: any) => (
+        <section class="mt-10">
+          <h2 class="font-display text-2xl text-teak mb-3">{s.heading}</h2>
+          {s.paragraphs && s.paragraphs.map((p: any) => <p class="mt-2 text-ink/80 leading-relaxed">{p}</p>)}
+          {s.points && (
+            <ul class="mt-3 space-y-2">
+              {s.points.map((pt: any) => (
+                <li class="flex gap-2 text-ink/80"><span class="text-gold mt-0.5" aria-hidden="true">•</span><span>{pt}</span></li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
+
+      <p class="mt-10 text-sm text-ink/50">{t.updatedLabel}: {topic.lastUpdated}</p>
+    </article>
+
+    <section class="max-w-3xl mx-auto px-5 pb-16">
+      <h2 class="font-display text-xl text-teak mb-4">{t.intro}</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {others.map((o) => (
+          <a href={`/${lang}/${o.slug}/`} class="block rounded-2xl border border-gold/25 bg-white/60 p-5 hover:border-gold hover:shadow-md transition">
+            <div class="font-display text-teak font-semibold text-lg">{t[o.key].cardTitle}</div>
+            <p class="mt-1 text-sm text-ink/70">{t[o.key].cardDesc}</p>
+            <span class="mt-3 inline-block text-sm text-gold">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer lang={lang} messages={messages} />
+</BaseLayout>

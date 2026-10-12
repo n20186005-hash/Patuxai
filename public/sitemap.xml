@@ -1,76 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://patuxai.com/lo/</loc>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://patuxai.com/lo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://patuxai.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://patuxai.com/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://patuxai.com/en/"/>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://patuxai.com/lo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://patuxai.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://patuxai.com/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://patuxai.com/en/"/>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/zh/</loc>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://patuxai.com/lo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://patuxai.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://patuxai.com/zh/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://patuxai.com/en/"/>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/lo/privacy-policy/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/en/privacy-policy/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/zh/privacy-policy/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/lo/terms-of-service/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/en/terms-of-service/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/zh/terms-of-service/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/lo/cookie-settings/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/en/cookie-settings/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://patuxai.com/zh/cookie-settings/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-</urlset>
+    <url>
+      <loc>https://www.patuxai.com/lo/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/lo/visit/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/visit/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/visit/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/visit/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/visit/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/lo/photos/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/photos/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/photos/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/photos/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/photos/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/lo/getting-here/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/getting-here/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/en/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/en/visit/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/visit/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/visit/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/visit/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/visit/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/en/photos/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/photos/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/photos/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/photos/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/photos/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/en/getting-here/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/getting-here/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/zh/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/zh/visit/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/visit/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/visit/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/visit/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/visit/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/zh/photos/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/photos/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/photos/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/photos/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/photos/" />
+    </url>
+    <url>
+      <loc>https://www.patuxai.com/zh/getting-here/</loc>
+      <xhtml:link rel="alternate" hreflang="lo" href="https://www.patuxai.com/lo/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://www.patuxai.com/en/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/getting-here/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/getting-here/" />
+    </url>
+  </urlset>

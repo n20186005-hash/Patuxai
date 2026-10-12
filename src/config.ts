@@ -2,8 +2,8 @@
 import { languagesList, htmlLang, type Lang } from './i18n/ui';
 
 export const siteConfig = {
-  // Replace with the real production domain before deploying.
-  domain: 'https://patuxai.com',
+  // Canonical production domain (www preferred; non-www 301-redirects to www).
+  domain: 'https://www.patuxai.com',
 
   // Display name per language (default = lo / Lao).
   name: {
@@ -46,20 +46,24 @@ export const siteConfig = {
     lng: 102.6139707,
   },
 
-  mapsUrl: 'https://maps.app.goo.gl/MU46frN67mD9RdgAA',
+  mapsUrl: 'https://maps.app.goo.gl/ke3RYFkZshgETy5q9',
   googleMapsEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3795.176226531386!2d102.61397069678955!3d17.970536300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3124687ed455e1df%3A0x24af4d39ae4445b0!2z5Liw6LGh5Yev5peL6Zeo!5e0!3m2!1szh-CN!2sus!4v1784771502551!5m2!1szh-CN!2sus',
 
   address: 'Ave Lane Xang, Vientiane 01000, Laos',
   plusCode: 'XJC9+6F Vientiane, Laos',
 
+  // Tower climb hours (verified October 2026 against Tourism Laos / on-site
+  // signage). The surrounding park grounds are a public space open daily.
   openingHours: {
-    opens: '07:30',
-    closes: '19:30',
-    time: '07:30–19:30',
+    opens: '08:00',
+    closes: '17:00',
+    time: '08:00–17:00',
   },
+  hoursVerified: 'October 2026',
+  hoursSource: 'Tourism Laos',
   rating: '4.4',
-  reviewCount: '12,528',
+  reviewCount: '12,807',
 
   // Patuxai is a public monument with no dedicated contact line; leave blank.
   phone: '',
@@ -97,7 +101,7 @@ export const siteConfig = {
   ],
 
   sameAs: [
-    'https://maps.app.goo.gl/MU46frN67mD9RdgAA',
+    'https://maps.app.goo.gl/ke3RYFkZshgETy5q9',
     'https://en.wikipedia.org/wiki/Patuxai',
     'https://www.tourismlaos.org',
   ],

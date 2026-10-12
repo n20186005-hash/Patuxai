@@ -1,0 +1,26 @@
+---
+import { languagesList } from '../../i18n/ui';
+import TopicPage from '../../components/TopicPage.astro';
+import { getI18n, type Lang } from '../../i18n/ui';
+
+const topicMap: Record<string, string> = {
+  visit: 'visit',
+  photos: 'photos',
+  'getting-here': 'gettingHere',
+};
+
+export function getStaticPaths() {
+  return languagesList.flatMap((lang) =>
+    Object.entries(topicMap).map(([slug, key]) => ({
+      params: { lang, topic: slug },
+      props: { topicKey: key },
+    }))
+  );
+}
+
+const { lang: paramLang, topic: paramTopic } = Astro.params as { lang: Lang; topic: string };
+const { lang, messages } = await getI18n(paramLang);
+const topicKey = topicMap[paramTopic];
+---
+
+<TopicPage lang={lang} messages={messages} topicKey={topicKey} path={paramTopic} />

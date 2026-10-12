@@ -12,11 +12,14 @@ export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
-    // Canonicalize to the non-www domain (301). Google Search Console shows
-    // both www and non-www versions indexed, which splits ranking signals;
-    // the canonical tag alone is not enough, so redirect explicitly.
-    if (url.hostname.startsWith('www.')) {
-      url.hostname = url.hostname.slice(4);
+    // Canonicalize to the www domain over HTTPS (301). Google Search Console
+    // shows both www and non-www versions indexed, which splits ranking
+    // signals; the canonical tag alone is not enough, so redirect explicitly.
+    const needsWww = !url.hostname.startsWith('www.');
+    const isHttp = url.protocol === 'http:';
+    if (needsWww || isHttp) {
+      if (needsWww) url.hostname = `www.${url.hostname}`;
+      if (isHttp) url.protocol = 'https:';
       return Response.redirect(url.toString(), 301);
     }
 

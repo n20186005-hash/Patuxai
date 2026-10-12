@@ -8,9 +8,11 @@ interface Props {
   title: string;
   description: string;
   messages: Record<string, any>;
+  path?: string;
 }
-const { lang, title, description, messages } = Astro.props;
-const canonical = `${siteConfig.domain}/${lang}/`;
+const { lang, title, description, messages, path = '' } = Astro.props;
+const pathPart = path ? `${path}/` : '';
+const canonical = `${siteConfig.domain}/${lang}/${pathPart}`;
 
 const faqs = (messages && messages.guide && messages.guide.faqs) ? messages.guide.faqs : [];
 
@@ -106,9 +108,9 @@ const jsonLd = [
     <meta name="apple-mobile-web-app-title" content={siteConfig.nameShort[lang]} />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     {languagesList.map((l) => (
-      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteConfig.domain}/${l}/`} />
+      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteConfig.domain}/${l}/${pathPart}`} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteConfig.domain}/en/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteConfig.domain}/en/${pathPart}`} />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP"></script>
