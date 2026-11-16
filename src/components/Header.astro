@@ -19,6 +19,7 @@ const navItems = [
   { label: h.reviews, href: '#reviews' },
   { label: h.map, href: '#map' },
   { label: messages.topics?.nearbyAttractions?.cardTitle ?? (lang === 'zh' ? '周边景点' : lang === 'lo' ? 'ບ່ອນໃກ້ຄຽງ' : 'Nearby'), href: `/${lang}/nearby-attractions/` },
+  { label: messages.sources.label, href: `/${lang}/sources/` },
 ];
 
 const currentPath = Astro.url.pathname;

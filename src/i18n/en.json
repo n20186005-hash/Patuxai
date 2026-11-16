@@ -857,7 +857,7 @@
     "factText": "Built 1957–1968; commemorates Lao independence; located on Lane Xang Avenue, Vientiane. Tower hours 08:00–17:00 (verified October 2026 via Tourism Laos); the grounds are always open. Hours and fees are indicative and may change — verify on site.",
     "correctionTitle": "Spot an error?",
     "correctionText": "This guide is community-maintained. If you notice outdated or incorrect information, please let us know.",
-    "correctionMailto": "mailto:n20186005@gmail.com?subject=Patuxai%20guide%20correction",
+    "correctionMailto": "mailto:laupetter72@gmail.com?subject=Patuxai%20guide%20correction",
     "correctionCta": "Send a correction",
     "copyright": "© 2026 Patuxai Visitor Guide."
   },
@@ -865,25 +865,36 @@
     "privacy-policy": {
       "title": "Privacy Policy",
       "body": [
-        "We collect no personal information unless you voluntarily contact us. This site uses privacy-respecting, anonymous analytics only.",
-        "No advertising trackers are loaded. Weather data is fetched live from Open-Meteo without identifying you.",
-        "If you email us, your address is used solely to respond and is never shared or sold."
+        "Effective 16 November 2026. This policy covers the multilingual visitor guide at patuxai.com.",
+        "We do not require accounts or request identity documents or payment details. Our hosting provider may process IP addresses, browser information and access logs for security and troubleshooting.",
+        "The website loads Google Analytics (measurement ID G-HXM22WWPKP), which may use cookies or similar technology to measure visits, devices and page usage. Google's privacy terms and the site's configuration govern related processing.",
+        "Weather information is provided by Open-Meteo. Google Maps, Wikipedia and other external links have their own privacy practices. We do not sell visitor information to advertisers.",
+        "If you email us, we use your address and message to respond and address the reported issue. Please avoid sending unnecessary sensitive information.",
+        "You can block or remove cookies in your browser privacy settings. Disabling analytics cookies does not prevent access to the static guide pages.",
+        "For privacy questions or requests about information submitted by email, contact laupetter72@gmail.com. We will update this notice when our practices change."
       ]
     },
     "terms-of-service": {
       "title": "Terms of Service",
       "body": [
-        "This is a non-profit, educational guide. Content is provided 'as is' without warranty.",
-        "Hours, fees and accessibility details may change — always confirm with official sources before travel.",
-        "Trademarks and place names belong to their respective owners."
+        "Effective 16 November 2026. This independent, non-profit visitor guide is not affiliated with or endorsed by government offices or attraction operators.",
+        "We aim to provide accurate historical and practical information, but opening hours, admission, transport, access and policies can change. Check official notices and on-site information before travel.",
+        "Material is provided for general education and trip planning, as-is and without a guarantee of completeness or suitability. Visitors remain responsible for personal safety and compliance with local rules.",
+        "Original site text and design are protected as applicable. Third-party names, photos, maps and trademarks remain the property of their respective owners.",
+        "Links to other websites are provided for convenience; their availability and content are controlled by their operators.",
+        "For corrections or technical support, email laupetter72@gmail.com. Material revisions to these terms will be reflected on this page."
       ]
     },
     "cookie-settings": {
       "title": "Cookie Settings",
       "body": [
-        "This site does not use advertising or cross-site tracking cookies.",
-        "Anonymous, privacy-friendly analytics may be used to improve the guide. You can disable these in your browser.",
-        "No personal data is stored on our servers."
+        "Updated 16 November 2026. This page explains cookies and similar technologies on patuxai.com.",
+        "Essential functionality: core static pages normally do not require cookies, though hosting and security systems may use necessary technical measures.",
+        "Analytics: Google Analytics (G-HXM22WWPKP) is loaded and may set or read cookies to understand visits and page use. We do not provide an advertising-cookie preference panel.",
+        "Third-party services: Open-Meteo weather requests and visits to Google Maps or other external sites may involve separate data processing under their policies.",
+        "Manage cookies through your browser's site-data or privacy controls, where you can view, block or delete cookies for patuxai.com. You can also enable browser tracking protection.",
+        "Blocking analytics cookies generally does not interfere with reading attraction pages, though some third-party features may differ.",
+        "For questions, contact laupetter72@gmail.com and see our Privacy Policy for additional details."
       ]
     }
   },

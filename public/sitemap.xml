@@ -232,4 +232,16 @@
       <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.patuxai.com/zh/attractions/talat-sao/" />
       <xhtml:link rel="alternate" hreflang="x-default" href="https://www.patuxai.com/en/attractions/talat-sao/" />
     </url>
+    <url><loc>https://www.patuxai.com/en/sources/</loc></url>
+    <url><loc>https://www.patuxai.com/zh/sources/</loc></url>
+    <url><loc>https://www.patuxai.com/lo/sources/</loc></url>
+    <url><loc>https://www.patuxai.com/en/attractions/ho-phra-keo/</loc></url>
+    <url><loc>https://www.patuxai.com/zh/attractions/ho-phra-keo/</loc></url>
+    <url><loc>https://www.patuxai.com/lo/attractions/ho-phra-keo/</loc></url>
+    <url><loc>https://www.patuxai.com/en/attractions/chao-anouvong-park/</loc></url>
+    <url><loc>https://www.patuxai.com/zh/attractions/chao-anouvong-park/</loc></url>
+    <url><loc>https://www.patuxai.com/lo/attractions/chao-anouvong-park/</loc></url>
+    <url><loc>https://www.patuxai.com/en/attractions/cope-visitor-centre/</loc></url>
+    <url><loc>https://www.patuxai.com/zh/attractions/cope-visitor-centre/</loc></url>
+    <url><loc>https://www.patuxai.com/lo/attractions/cope-visitor-centre/</loc></url>
   </urlset>

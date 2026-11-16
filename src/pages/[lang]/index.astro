@@ -8,7 +8,6 @@ import History from '../../components/History.astro';
 import Legacy from '../../components/Legacy.astro';
 import Comparison from '../../components/Comparison.astro';
 import Guide from '../../components/Guide.astro';
-import Sources from '../../components/Sources.astro';
   import Food from '../../components/Food.astro';
 import Gallery from '../../components/Gallery.astro';
 import Reviews from '../../components/Reviews.astro';
@@ -41,7 +40,6 @@ const { lang, messages } = await getI18n(paramLang);
     <Reviews messages={messages} />
     <TopicLinks lang={lang} messages={messages} />
     <NearbyExplore lang={lang} />
-    <Sources messages={messages} />
     <MapSection lang={lang} messages={messages} />
     <WeatherSection lang={lang} messages={messages} />
   </main>
