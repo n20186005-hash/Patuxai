@@ -55,12 +55,49 @@ const shared = {
 };
 
 export const additionalNearbySlugs = Object.keys(entries);
+const detailedRoutes: Record<string, Record<Lang, string[]>> = {
+  'ho-phra-keo': {
+    en: ['Approach the former royal temple from Setthathirath Road.', 'Study the elevated terrace, roofline and entrance carvings.', 'Visit the permitted sculpture displays without touching them.', 'Cross to Wat Si Saket for a contrasting cloister experience.'],
+    zh: ['从塞塔提腊路进入昔日王室寺院。', '观察高台、屋顶层次与入口雕饰。', '在允许范围内欣赏佛教造像，不触摸展品。', '再前往对面的沙格庙比较回廊建筑。'],
+    lo: ['ເຂົ້າຈາກຖະໜົນເຊດຖາທິລາດ.', 'ສັງເກດຖານສູງ ຫຼັງຄາ ແລະ ປະຕູແກະສະຫຼັກ.', 'ຊົມຮູບພະໃນເຂດທີ່ເປີດ.', 'ໄປຕໍ່ວັດສີສະເກດ.'],
+  },
+  'chao-anouvong-park': {
+    en: ['Enter the open riverside park from the city side.', 'Approach the King Anouvong statue and read any interpretation.', 'Walk the promenade for wide Mekong views.', 'Finish toward the night market area if stalls are operating.'],
+    zh: ['从城市街道一侧进入河畔公园。', '走近昭阿努王雕像并阅读现场说明。', '沿步道欣赏湄公河开阔景观。', '若夜市营业，可继续前往摊位区。'],
+    lo: ['ເຂົ້າສວນຈາກດ້ານເມືອງ.', 'ຊົມຮູບປັ້ນເຈົ້າອານຸວົງ.', 'ຍ່າງຕາມທາງແຄມຂອງ.', 'ໄປຕໍ່ເຂດຕະຫຼາດແລງຖ້າເປີດ.'],
+  },
+  'cope-visitor-centre': {
+    en: ['Find the visitor-centre entrance on Khou Vieng Road.', 'Begin with the displays introducing the UXO problem.', 'Spend time with the rehabilitation and prosthetics stories.', 'Pause to reflect, then continue without photographing sensitive displays against the rules.'],
+    zh: ['从 Khou Vieng Road 找到访客中心入口。', '先阅读介绍老挝未爆弹问题的展览。', '再观察康复工作与义肢相关的真实故事。', '留出思考时间，并遵守敏感展品的拍摄限制。'],
+    lo: ['ຊອກຫາທາງເຂົ້າຢູ່ຖະໜົນຄູວຽງ.', 'ເລີ່ມຊົມຂໍ້ມູນລະເບີດບໍ່ທັນແຕກ.', 'ອ່ານເລື່ອງການຟື້ນຟູແລະຂາທຽມ.', 'ເຄົາລົບກົດຖ່າຍຮູບໃນນິທັດສະການ.'],
+  },
+  'wat-si-muang': {
+    en: ['Approach the temple from Setthathirath Road.', 'Observe the offerings and city-pillar associations respectfully.', 'Study the ornate shrine interior only where access is permitted.', 'Continue to the COPE Visitor Centre or riverside by a suitable route.'],
+    zh: ['从塞塔提腊路前往寺院。', '尊重当地城柱信仰与供奉活动。', '在允许的区域欣赏佛殿及装饰。', '再按实际交通前往 COPE 中心或河岸。'],
+    lo: ['ເຂົ້າວັດຈາກຖະໜົນເຊດຖາທິລາດ.', 'ເຄົາລົບການບູຊາຫຼັກເມືອງ.', 'ຊົມວິຫານໃນເຂດທີ່ອະນຸຍາດ.', 'ໄປຕໍ່ສູນ COPE ຫຼື ແຄມຂອງ.'],
+  },
+  'wat-ong-teu': {
+    en: ['Enter the permitted courtyard from Setthathirath Road.', 'Observe the roof details and hall entrance.', 'View the famous large seated bronze Buddha respectfully.', 'Continue along the old-town temple walk toward Wat Inpeng.'],
+    zh: ['从塞塔提腊路进入可开放院落。', '细看屋顶装饰及佛殿入口。', '安静欣赏寺中著名的大型青铜坐佛。', '沿老城寺院路线继续前往因彭寺。'],
+    lo: ['ເຂົ້າລານວັດຈາກຖະໜົນເຊດຖາທິລາດ.', 'ຊົມຫຼັງຄາແລະປະຕູວິຫານ.', 'ເບິ່ງພະອົງຕື້ດ້ວຍຄວາມເຄົາລົບ.', 'ຍ່າງຕໍ່ໄປວັດອິນແປງ.'],
+  },
+  'vientiane-night-market': {
+    en: ['Arrive near Quai Fa Ngum in the evening.', 'Walk the public aisles between souvenir and clothing stalls.', 'Compare prices and ask before photographing vendors.', 'Finish with the riverside promenade without blocking pedestrian flow.'],
+    zh: ['傍晚抵达 Quai Fa Ngum 河岸一带。', '沿开放通道逛服饰和纪念品摊位。', '比较价格，拍摄摊商前征求同意。', '沿河岸步道结束行程，留意人流。'],
+    lo: ['ໄປເຂດຖະໜົນເຈົ້າຟ້າງຸ່ມຕອນແລງ.', 'ຍ່າງຊົມແຜງເສື້ອຜ້າແລະຂອງຝາກ.', 'ຖາມລາຄາແລະຂໍອະນຸຍາດຖ່າຍຮູບ.', 'ຍ່າງຕໍ່ຕາມທາງຮິມຂອງ.'],
+  },
+  'buddha-park': {
+    en: ['Allow road time to Xieng Khuan outside central Vientiane.', 'Begin with an overview of the outdoor sculpture field.', 'View the large reclining Buddha and fantastic figures from permitted paths.', 'Return toward the city before transport becomes difficult.'],
+    zh: ['预留前往万象东南郊香昆的乘车时间。', '先了解露天雕塑区整体布局。', '沿允许步道欣赏巨型卧佛和奇幻神像。', '留意回城交通，勿等到难以叫车时才离开。'],
+    lo: ['ເຜື່ອເວລາລົດໄປຊຽງຄວນນອກເມືອງ.', 'ເບິ່ງພາບລວມສວນປະຕິມາກຳ.', 'ຊົມພະນອນແລະຮູບປັ້ນຕາມທາງທີ່ເປີດ.', 'ກວດກາລົດກັບເມືອງກ່ອນອອກ.'],
+  },
+};
 export function getAdditionalNearby(slug: string, lang: Lang): NearbyPlace | undefined {
   const e = entries[slug]; if (!e) return undefined;
   const t = e[lang], s = shared[lang];
   return { slug, name: t.name, tagline: t.subject, description: `${t.name}: ${t.subject}. ${t.history}`, address: e.address, mapQuery: e.query,
     category: t.category, hours: s.hours, admission: s.admission, time: `${e.minutes} ${lang === 'en' ? 'minutes' : lang === 'zh' ? '分钟' : 'ນາທີ'}`,
     manager: s.manager, intro: t.subject, history: t.history, architecture: t.architecture, culture: t.culture,
-    highlights: [t.history, t.architecture, t.culture], visit: `${s.visit} ${t.caution}`, route: s.route, etiquette: s.etiquette,
+    highlights: [t.history, t.architecture, t.culture], visit: `${s.visit} ${t.caution}`, route: detailedRoutes[slug]?.[lang] ?? s.route, etiquette: s.etiquette,
     photo: s.photo, lodging: s.lodging, review: s.review, faqs: s.faq, source: e.source };
 }

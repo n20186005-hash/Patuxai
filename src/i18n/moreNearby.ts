@@ -56,6 +56,48 @@ const sites: Record<string, Site> = {
 };
 
 export const moreNearbySlugs = Object.keys(sites);
+const walks: Record<string, Record<Lang, string[]>> = {
+  'wat-inpeng': {
+    en: ['Approach the gate from Setthathirath Road and notice its ornament.', 'Walk through the publicly accessible courtyard without interrupting prayers.', 'Compare the hall roof and decorative forms with nearby Wat Ong Teu.', 'Continue along the temple-lined street toward Wat Mixay.'],
+    zh: ['从塞塔提腊路寻找寺院正门，观察门饰。', '沿允许进入的院落慢行，不打扰礼佛。', '观察佛殿屋顶与装饰，再与附近翁德寺对比。', '沿古寺街区继续前往米赛寺。'],
+    lo: ['ເລີ່ມທີ່ປະຕູວັດຈາກຖະໜົນເຊດຖາທິລາດ.', 'ຍ່າງຊົມລານທີ່ເປີດໂດຍບໍ່ລົບກວນພິທີ.', 'ສັງເກດຫຼັງຄາແລະລວດລາຍ.', 'ໄປຕໍ່ວັດມີໄຊ.'],
+  },
+  'wat-mixay': {
+    en: ['Find the decorated temple gateway.', 'Observe the guardian figures and layered roof from the courtyard.', 'Pause at a respectful distance from the worship hall.', 'Continue on foot toward Wat Haysoke and the old town.'],
+    zh: ['从街道寻找装饰丰富的寺门。', '在院落观察守护像及层叠屋顶。', '与佛殿保持适当距离，留意正在举行的宗教活动。', '步行继续前往海索寺及老城街区。'],
+    lo: ['ຊອກຫາປະຕູວັດທີ່ປະດັບສວຍງາມ.', 'ສັງເກດຮູບຜູ້ພິທັກ ແລະ ຫຼັງຄາ.', 'ຢືນຫ່າງຈາກບ່ອນສວດມົນ.', 'ໄປຕໍ່ວັດໄຮໂສກ.'],
+  },
+  'wat-chan': {
+    en: ['Enter the permitted area from Quai Fa Ngum.', 'Study the temple roof and courtyard features.', 'Walk back to the Mekong-facing street.', 'Pair the visit with the riverside promenade, park or night market according to the time of day.'],
+    zh: ['从 Quai Fa Ngum 一侧寻找开放入口。', '观察佛殿屋顶及庭院细节。', '返回朝向湄公河的街道。', '结合时间前往河岸步道、公园或夜市。'],
+    lo: ['ເຂົ້າຈາກດ້ານຖະໜົນເຈົ້າຟ້າງຸ່ມ.', 'ຊົມຫຼັງຄາ ແລະ ລານວັດ.', 'ກັບອອກໄປຖະໜົນຮິມຂອງ.', 'ຍ່າງຕໍ່ໄປສວນ ຫຼື ຕະຫຼາດແລງ.'],
+  },
+  'wat-haysoke': {
+    en: ['Begin at the street-facing gateway.', 'View the ornate gable and roofline without entering private buildings.', 'Note the difference between the courtyard and adjacent commercial blocks.', 'Continue to Wat Inpeng or Wat Mixay.'],
+    zh: ['从临街寺门开始。', '从允许的位置欣赏山墙与屋脊，不进入私人建筑。', '比较寺院庭院与相邻商业街的空间感。', '继续前往因彭寺或米赛寺。'],
+    lo: ['ເລີ່ມຈາກປະຕູຕິດຖະໜົນ.', 'ຊົມໜ້າບັນ ແລະ ຫຼັງຄາ.', 'ສັງເກດລານວັດແລະຖະໜົນການຄ້າ.', 'ໄປຕໍ່ວັດອິນແປງ ຫຼື ວັດມີໄຊ.'],
+  },
+  'lao-cultural-hall': {
+    en: ['Approach the exterior from Samsenthai Road.', 'Observe the civic building’s main façade and entrance.', 'Check posted event notices before attempting to enter.', 'Continue to nearby old-town streets and temples.'],
+    zh: ['从 Samsenthai Road 一侧欣赏外观。', '观察建筑正立面和主入口。', '先查看演出活动公告，再决定是否进入。', '步行连接附近的老城街道与寺院。'],
+    lo: ['ຊົມອາຄານຈາກຖະໜົນສາມແສນໄທ.', 'ສັງເກດດ້ານໜ້າແລະທາງເຂົ້າ.', 'ກວດກາປະກາດງານກ່ອນເຂົ້າ.', 'ໄປຕໍ່ຖະໜົນເກົ່າແລະວັດໃກ້ຄຽງ.'],
+  },
+  'lao-textile-museum': {
+    en: ['Arrive at the museum rather than a similarly named textile shop.', 'Start with the displays explaining regional cloth and patterns.', 'Examine the looms and tools in areas open to visitors.', 'Ask staff about demonstrations and photography before taking close-ups.'],
+    zh: ['确认抵达纺织博物馆，而不是名称相似的布料商店。', '从介绍老挝各地布料及花纹的展品开始。', '在开放区域观察织机和制作工具。', '如有示范活动或需要近拍，请先向工作人员询问。'],
+    lo: ['ໄປຫາພິພິທະພັນ ບໍ່ແມ່ນຮ້ານຜ້າຊື່ຄ້າຍກັນ.', 'ເລີ່ມຊົມລວດລາຍຜ້າແຕ່ລະແຂວງ.', 'ສັງເກດກີ່ທໍຜ້າແລະເຄື່ອງມື.', 'ຖາມພະນັກງານກ່ອນຖ່າຍຮູບໃກ້.'],
+  },
+  'presidential-palace': {
+    en: ['View the palace from an unrestricted public pavement.', 'Study the main façade and gardens from outside the perimeter.', 'Use a legal pedestrian crossing to change viewpoint.', 'Continue to nearby Wat Si Saket and Haw Phra Kaew.'],
+    zh: ['从允许通行的公共人行道欣赏主席府。', '在围栏外观察主体立面及花园。', '通过正规人行横道调整拍摄角度。', '继续前往附近的沙格庙与玉佛寺博物馆。'],
+    lo: ['ຊົມຫໍຄຳຈາກທາງຍ່າງສາທາລະນະ.', 'ເບິ່ງອາຄານແລະສວນຈາກນອກຮົ້ວ.', 'ຂ້າມຖະໜົນໃນບ່ອນທີ່ປອດໄພ.', 'ໄປຕໍ່ວັດສີສະເກດ ແລະ ຫໍພະແກ້ວ.'],
+  },
+  'nam-phou-fountain': {
+    en: ['Reach Nam Phou Square using a marked crossing.', 'View the fountain and surrounding buildings from the public plaza.', 'Pause at a café if you want to observe street activity.', 'Continue toward the historic streets or riverside.'],
+    zh: ['通过安全的人行横道进入南普广场。', '从公共区域观察喷泉及周围建筑。', '如有兴趣可在附近咖啡馆停留，感受街区生活。', '继续前往历史街道或湄公河畔。'],
+    lo: ['ເຂົ້າລານນ້ຳພຸຜ່ານທາງຂ້າມທີ່ປອດໄພ.', 'ຊົມນ້ຳພຸແລະອາຄານຮອບລານ.', 'ພັກທີ່ຮ້ານກາເຟໃກ້ຄຽງ.', 'ໄປຕໍ່ຖະໜົນເກົ່າ ຫຼື ແຄມຂອງ.'],
+  },
+};
 export function getMoreNearby(slug: string, lang: Lang): NearbyPlace | undefined {
   const site = sites[slug]; if (!site) return undefined;
   const [name, intro, history, architecture, caution] = site[lang];
@@ -85,6 +127,6 @@ export function getMoreNearby(slug: string, lang: Lang): NearbyPlace | undefined
     category: lang === 'zh' ? '万象文化与城市景点' : lang === 'lo' ? 'ສະຖານທີ່ວັດທະນະທຳວຽງຈັນ' : 'Vientiane culture and city sights',
     hours: local.hours, admission: local.admission, time: `${site.minutes} ${lang === 'zh' ? '分钟' : lang === 'lo' ? 'ນາທີ' : 'minutes'}`,
     manager: local.manager, intro, history, architecture, culture: caution, highlights: [history, architecture, caution], visit: local.visit,
-    route: local.route, etiquette: local.etiquette, photo: local.photo, lodging: local.lodging, review: local.review,
+    route: walks[slug]?.[lang] ?? local.route, etiquette: local.etiquette, photo: local.photo, lodging: local.lodging, review: local.review,
     faqs: local.faq, source: site.source };
 }
