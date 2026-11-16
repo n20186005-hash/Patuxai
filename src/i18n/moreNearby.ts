@@ -56,6 +56,38 @@ const sites: Record<string, Site> = {
 };
 
 export const moreNearbySlugs = Object.keys(sites);
+const managementType: Record<string, 'temple' | 'culture' | 'museum' | 'government' | 'public'> = {
+  'wat-inpeng': 'temple', 'wat-mixay': 'temple', 'wat-chan': 'temple', 'wat-haysoke': 'temple',
+  'lao-cultural-hall': 'culture', 'lao-textile-museum': 'museum',
+  'presidential-palace': 'government', 'nam-phou-fountain': 'public',
+};
+function managementText(slug: string, name: string, lang: Lang): string {
+  const type = managementType[slug];
+  const text = {
+    en: {
+      temple: `${name} is an active Buddhist monastery. Its resident monastic community oversees religious use and visitor conduct; arrangements for the grounds and hall may change during worship.`,
+      culture: `${name} is a national cultural performance venue. The venue's operating and event teams control auditorium access and performances; the exterior can be appreciated from public streets.`,
+      museum: `${name} is a dedicated textile museum. Its museum operators care for the displays and determine tours, demonstrations and permitted photography.`,
+      government: `${name} serves as state premises. The responsible state authorities control the building and security; general visitors should view it only from unrestricted public areas.`,
+      public: `${name} is a civic square and fountain. The public-space and infrastructure authorities are responsible for its maintenance, while neighbouring businesses manage their own premises.`,
+    },
+    zh: {
+      temple: `${name}是仍在使用的佛教寺院，宗教活动及礼佛秩序由驻寺僧众维护。佛殿和院落的游客开放范围可能随法会调整，参观时应遵守寺方现场安排。`,
+      culture: `${name}属于国家文化演出场所，场馆运营与活动团队负责演出及礼堂入场安排。游客可从公共街道欣赏建筑外观，室内参观取决于当期活动。`,
+      museum: `${name}是以老挝传统纺织为主题的博物馆，展品维护、讲解、工艺示范和摄影规定由场馆运营人员管理。`,
+      government: `${name}是国家公务建筑，由相关国家机关管理建筑使用与安保。它不是常规开放的博物馆，游客应在允许的公共区域欣赏外观。`,
+      public: `${name}是市中心公共广场与喷泉设施，广场和公共设施维护涉及城市公共空间管理部门；周边餐饮商户则各自管理营业空间。`,
+    },
+    lo: {
+      temple: `${name} ເປັນວັດພຸດທີ່ຍັງໃຊ້ງານ. ຄະນະສົງໃນວັດດູແລການໄຫວ້ພະ ແລະ ລະບຽບການເຂົ້າຊົມ. ກວດກາການເປີດວິຫານຢູ່ໜ້າງານ.`,
+      culture: `${name} ເປັນຫໍສະແດງວັດທະນະທຳ. ຄະນະຈັດງານ ແລະ ຜູ້ດຳເນີນສະຖານທີ່ດູແລການເຂົ້າຫໍສະແດງ.`,
+      museum: `${name} ເປັນພິພິທະພັນຜ້າທໍ. ຜູ້ດຳເນີນພິພິທະພັນດູແລສິ່ງສະແດງ ການນຳຊົມ ແລະ ການຖ່າຍຮູບ.`,
+      government: `${name} ເປັນອາຄານລັດ. ໜ່ວຍງານຂອງລັດຮັບຜິດຊອບການໃຊ້ງານ ແລະ ຄວາມປອດໄພ. ຊົມດ້ານນອກຈາກເຂດສາທາລະນະ.`,
+      public: `${name} ເປັນລານສາທາລະນະ. ພາກສ່ວນດູແລພື້ນທີ່ເມືອງຮັບຜິດຊອບລານ ແລະ ນ້ຳພຸ; ຮ້ານຄ້າຮອບຂ້າງດູແລພື້ນທີ່ຂອງຕົນ.`,
+    },
+  };
+  return text[lang][type];
+}
 const walks: Record<string, Record<Lang, string[]>> = {
   'wat-inpeng': {
     en: ['Approach the gate from Setthathirath Road and notice its ornament.', 'Walk through the publicly accessible courtyard without interrupting prayers.', 'Compare the hall roof and decorative forms with nearby Wat Ong Teu.', 'Continue along the temple-lined street toward Wat Mixay.'],
@@ -126,7 +158,7 @@ export function getMoreNearby(slug: string, lang: Lang): NearbyPlace | undefined
   return { slug, name, tagline: intro, description: `${intro} ${history}`, address: site.address, mapQuery: site.q,
     category: lang === 'zh' ? '万象文化与城市景点' : lang === 'lo' ? 'ສະຖານທີ່ວັດທະນະທຳວຽງຈັນ' : 'Vientiane culture and city sights',
     hours: local.hours, admission: local.admission, time: `${site.minutes} ${lang === 'zh' ? '分钟' : lang === 'lo' ? 'ນາທີ' : 'minutes'}`,
-    manager: local.manager, intro, history, architecture, culture: caution, highlights: [history, architecture, caution], visit: local.visit,
+    manager: managementText(slug, name, lang), intro, history, architecture, culture: caution, highlights: [history, architecture, caution], visit: local.visit,
     route: walks[slug]?.[lang] ?? local.route, etiquette: local.etiquette, photo: local.photo, lodging: local.lodging, review: local.review,
     faqs: local.faq, source: site.source };
 }

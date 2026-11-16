@@ -55,6 +55,15 @@ const shared = {
 };
 
 export const additionalNearbySlugs = Object.keys(entries);
+const managers: Record<string, Record<Lang, string>> = {
+  'ho-phra-keo': { en: 'Haw Phra Kaew is a former royal temple now used as a museum. Cultural-site staff oversee exhibition access and the care of displayed Buddhist sculpture; visitors must follow the museum’s opening and photography rules.', zh: '玉佛寺曾是万象王室寺院，如今作为博物馆展示佛教艺术。展品维护及游客入场由文化场馆管理人员负责，实际开放时间和摄影规定应以馆方公告为准。', lo: 'ຫໍພະແກ້ວເປັນອະດີດວັດຫຼວງທີ່ໃຊ້ເປັນພິພິທະພັນ. ພະນັກງານດູແລສິ່ງສະແດງ ແລະ ກົດການເຂົ້າຊົມ.' },
+  'chao-anouvong-park': { en: 'Chao Anouvong Park is a public riverside park centred on the king’s monument. City public-space authorities oversee the paths and landscape, while temporary events and nearby vendors have their own operating arrangements.', zh: '昭阿努公园是设有昭阿努王纪念像的湄公河畔公共绿地。步道和景观维护涉及万象市公共空间管理部门；临时活动及附近商贩另有各自的经营安排。', lo: 'ສວນເຈົ້າອານຸວົງເປັນສວນສາທາລະນະຮິມຂອງ. ພາກສ່ວນດູແລພື້ນທີ່ເມືອງຮັບຜິດຊອບທາງຍ່າງແລະພູມສັນຖານ; ການຈັດງານອາດມີຂໍ້ກຳນົດແຍກ.' },
+  'cope-visitor-centre': { en: 'COPE Visitor Centre is operated in connection with COPE’s rehabilitation and unexploded-ordnance education work. Its team manages the exhibits, visitor access and interpretation rather than a municipal monument authority.', zh: 'COPE 游客中心与 COPE 的康复援助、未爆弹公众教育工作相连，由项目及场馆团队维护展览、讲解与参观安排，并非普通市政纪念碑。', lo: 'ສູນຢ້ຽມຢາມ COPE ຜູກພັນກັບວຽກຟື້ນຟູ ແລະ ໃຫ້ຄວາມຮູ້ເລື່ອງລະເບີດບໍ່ທັນແຕກ. ທີມງານ COPE ດູແລນິທັດສະການແລະຜູ້ຢ້ຽມຢາມ.' },
+  'wat-si-muang': { en: 'Wat Si Muang remains an active Buddhist temple associated with Vientiane’s city-pillar tradition. Its monastic community manages religious observance and the accessible worship space; visitors should follow temple instructions.', zh: '西孟寺至今仍是与万象城柱信仰密切相关的佛教寺院。驻寺僧众负责宗教活动与礼拜区域秩序；游客应根据寺方公告参观。', lo: 'ວັດສີເມືອງຍັງເປັນວັດທີ່ຜູກພັນກັບຫຼັກເມືອງ. ຄະນະສົງດູແລພິທີແລະພື້ນທີ່ໄຫວ້ພະ.' },
+  'wat-ong-teu': { en: 'Wat Ong Teu Mahawihan is an active monastery and important Buddhist learning centre. The temple community oversees worship and visitor conduct around the celebrated bronze Buddha and hall.', zh: '翁德寺是仍在使用的佛教寺院及宗教学习场所。寺院僧团维护礼佛活动，并管理大型青铜佛像与佛殿周边的参观秩序。', lo: 'ວັດອົງຕື້ມະຫາວິຫານເປັນວັດແລະບ່ອນຮຽນຮູ້ທາງພຸດທະສາສະໜາ. ຄະນະສົງດູແລການໄຫວ້ພະແລະຜູ້ຢ້ຽມຢາມ.' },
+  'vientiane-night-market': { en: 'Vientiane Night Market consists of changing independent stalls along the public Mekong riverfront. Vendors run their own businesses; municipal public-space arrangements may affect stall placement and pedestrian access.', zh: '万象湄公河夜市由河岸公共空间内的众多独立摊商组成，各摊主自行经营。摊位位置、行人通道和临时活动还受到城市公共空间管理安排影响。', lo: 'ຕະຫຼາດກາງຄືນວຽງຈັນມີແຜງຂາຍຫຼາຍຮ້ານຕາມຮິມຂອງ. ຜູ້ຂາຍດູແລຮ້ານຕົນ ແລະ ພື້ນທີ່ສາທາລະນະມີການຈັດການຂອງເມືອງ.' },
+  'buddha-park': { en: 'Buddha Park (Xieng Khuan) is a managed outdoor sculpture attraction, not an ordinary functioning monastery. Park staff oversee entry, paths and visitor conduct around the works of Bunleua Sulilat; current arrangements are posted at its entrance.', zh: '佛陀公园（香昆）是以 Bunleua Sulilat 创作的宗教雕塑为核心的户外景区，并非普通在用寺院。园区工作人员负责入场、步道与雕塑参观秩序，具体规定以入口公告为准。', lo: 'ສວນພຸດທະຊຽງຄວນເປັນສວນປະຕິມາກຳກາງແຈ້ງ ບໍ່ແມ່ນວັດທົ່ວໄປ. ພະນັກງານສວນດູແລຄ່າເຂົ້າ ທາງຍ່າງ ແລະ ການຊົມຮູບປັ້ນ.' },
+};
 const detailedRoutes: Record<string, Record<Lang, string[]>> = {
   'ho-phra-keo': {
     en: ['Approach the former royal temple from Setthathirath Road.', 'Study the elevated terrace, roofline and entrance carvings.', 'Visit the permitted sculpture displays without touching them.', 'Cross to Wat Si Saket for a contrasting cloister experience.'],
@@ -97,7 +106,7 @@ export function getAdditionalNearby(slug: string, lang: Lang): NearbyPlace | und
   const t = e[lang], s = shared[lang];
   return { slug, name: t.name, tagline: t.subject, description: `${t.name}: ${t.subject}. ${t.history}`, address: e.address, mapQuery: e.query,
     category: t.category, hours: s.hours, admission: s.admission, time: `${e.minutes} ${lang === 'en' ? 'minutes' : lang === 'zh' ? '分钟' : 'ນາທີ'}`,
-    manager: s.manager, intro: t.subject, history: t.history, architecture: t.architecture, culture: t.culture,
+    manager: managers[slug]?.[lang] ?? s.manager, intro: t.subject, history: t.history, architecture: t.architecture, culture: t.culture,
     highlights: [t.history, t.architecture, t.culture], visit: `${s.visit} ${t.caution}`, route: detailedRoutes[slug]?.[lang] ?? s.route, etiquette: s.etiquette,
     photo: s.photo, lodging: s.lodging, review: s.review, faqs: s.faq, source: e.source };
 }
