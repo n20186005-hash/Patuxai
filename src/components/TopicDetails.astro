@@ -21,7 +21,7 @@ const labels = {
     photography: '推荐拍摄机位', photoTips: ['喷泉广场：早晨柔和光线下拍建筑全景。', '拱门中轴：以澜沧大道作对称构图。', '拱门内部：近距离拍摄天花装饰。', '上层观景台：开放时拍摄万象市区全景。'],
     gallery: '万象凯旋门实景照片', galleryNote: '以下照片展示凯旋门本身，不代表周边其他景点。',
     faq: '常见问题', faqs: [['不买门票可以参观吗？', '外围广场属于公共空间；内部登塔为不同参观项目，票价与开放状态请现场核实。'], ['建议停留多久？', '欣赏建筑与广场约需30–60分钟；登塔、拍照及周边游览需另加时间。'], ['什么时候适合拍照？', '清晨与傍晚光线通常较柔和；若想登塔拍日落，须先核实关闭时间。'], ['适合带孩子参观吗？', '广场相对容易游览，内部楼梯需要留意；请照看孩子并注意车道与水景。']],
-    maps: 'Google 地图定位', nearby: '附近值得游览的地点', more: '查看独立景点指南', source: '管理维护资料来源', stay: '住宿建议', stayText: '可优先比较澜沧大道及万象市中心周边住宿，并根据实际步行路线与交通时间决定。',
+    maps: 'Google 地图定位', nearby: '附近值得游览的地点', more: '探索', source: '管理维护资料来源', stay: '住宿建议', stayText: '可优先比较澜沧大道及万象市中心周边住宿，并根据实际步行路线与交通时间决定。',
   },
   lo: {
     about: 'ກ່ຽວກັບປະຕູໄຊ ແລະ ການດູແລ', management: 'ປະຕູໄຊເປັນອະນຸສາວະລີສາທາລະນະໃນນະຄອນຫຼວງວຽງຈັນ. ວຽກປັບປຸງພື້ນທີ່ມີການປະສານງານຈາກພາກລັດທ້ອງຖິ່ນ. ໃນປີ 2023 ສຳນັກງານຄຸ້ມຄອງແລະບໍລິການນະຄອນວຽງຈັນ (VCOMS) ໄດ້ແຈ້ງຂ່າວການປັບປຸງອະນຸສາວະລີ. ກະລຸນາກວດກາປະກາດປັດຈຸບັນຢູ່ສະຖານທີ່.',
@@ -87,7 +87,7 @@ const photos = topicKey === 'historyArchitecture' ? [3, 9, 16] : topicKey === 'n
 <section class="max-w-5xl mx-auto px-5 py-14">
   <h2 class="font-display text-3xl text-teak">{t.nearby}</h2>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-    {destinations.map((d) => <div id={d.id} class="border border-gold/25 rounded-xl p-5 bg-white/70 scroll-mt-24"><h3 class="font-semibold text-teak">{d[lang]}</h3><div class="flex flex-wrap gap-3 mt-4 text-sm"><a class="text-gold underline" href={`/${lang}/attractions/${d.id}/`}>{t.more}</a><a class="text-gold underline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.q)}`} target="_blank" rel="noopener noreferrer">{t.maps} ↗</a></div></div>)}
+    {destinations.map((d) => <div id={d.id} class="border border-gold/25 rounded-xl p-5 bg-white/70 scroll-mt-24"><h3 class="font-semibold text-teak">{d[lang]}</h3><div class="flex flex-wrap gap-3 mt-4 text-sm"><a class="text-gold underline" href={`/${lang}/attractions/${d.id}/`}>{lang === 'zh' ? `探索${d.zh}` : lang === 'en' ? `Explore ${d.en}` : `ທ່ຽວຊົມ ${d.lo}`}</a><a class="text-gold underline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.q)}`} target="_blank" rel="noopener noreferrer">{t.maps} ↗</a></div></div>)}
   </div>
   <h3 class="font-display text-xl text-teak mt-10">{t.stay}</h3><p class="text-ink/75 mt-2 leading-7">{t.stayText}</p>
   <p class="mt-6"><a class="text-gold underline" href={siteConfig.mapsUrl} target="_blank" rel="noopener noreferrer">Patuxai · {siteConfig.address} ↗</a></p>

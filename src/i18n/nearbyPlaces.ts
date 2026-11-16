@@ -1,5 +1,6 @@
 import type { Lang } from './ui';
 import { additionalNearbySlugs, getAdditionalNearby } from './additionalNearby';
+import { moreNearbySlugs, getMoreNearby } from './moreNearby';
 
 export type NearbyPlace = {
   slug: string; name: string; tagline: string; description: string; address: string; mapQuery: string;
@@ -36,8 +37,8 @@ const base: Record<string, { mapQuery: string; source?: string; translations: Re
 
 // The remaining places are supplied below. Keep all language variants co-located
 // so their route sets cannot silently diverge.
-export const nearbySlugs = ['that-dam', 'wat-si-saket', 'pha-that-luang', 'talat-sao', ...additionalNearbySlugs];
+export const nearbySlugs = ['that-dam', 'wat-si-saket', 'pha-that-luang', 'talat-sao', ...additionalNearbySlugs, ...moreNearbySlugs];
 export function getNearbyPlace(slug: string, lang: Lang): NearbyPlace | undefined {
   const item = base[slug];
-  return item ? { slug, mapQuery: item.mapQuery, source: item.source || source, ...item.translations[lang] } : getAdditionalNearby(slug, lang);
+  return item ? { slug, mapQuery: item.mapQuery, source: item.source || source, ...item.translations[lang] } : getAdditionalNearby(slug, lang) ?? getMoreNearby(slug, lang);
 }
