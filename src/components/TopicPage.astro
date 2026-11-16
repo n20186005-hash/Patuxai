@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import TopicDetails from './TopicDetails.astro';
 import { type Lang } from '../i18n/ui';
 
 interface Props {
@@ -19,6 +20,9 @@ const topicSlugs = [
   { slug: 'visit', key: 'visit' },
   { slug: 'photos', key: 'photos' },
   { slug: 'getting-here', key: 'gettingHere' },
+  { slug: 'history-architecture', key: 'historyArchitecture' },
+  { slug: 'name-pronunciation', key: 'namePronunciation' },
+  { slug: 'nearby-attractions', key: 'nearbyAttractions' },
 ];
 const others = topicSlugs.filter((x) => x.key !== topicKey);
 ---
@@ -26,11 +30,16 @@ const others = topicSlugs.filter((x) => x.key !== topicKey);
 <BaseLayout lang={lang} title={topic.title} description={topic.description} messages={messages} path={path}>
   <Header lang={lang} messages={messages} />
   <main class="bg-ivory text-ink">
-    <article class="max-w-3xl mx-auto px-5 py-16">
+    <article class="max-w-3xl mx-auto px-5 pt-24 pb-12">
       <p class="font-hand text-gold text-xl">{t.intro}</p>
       <h1 class="font-display font-semibold text-3xl md:text-5xl text-teak mt-2">{topic.h1}</h1>
       <p class="mt-4 text-lg text-ink/80">{topic.lead}</p>
       <a href={`/${lang}/`} class="inline-block mt-4 text-sm text-gold hover:text-goldBright">← {nav.home}</a>
+    </article>
+
+    {['historyArchitecture', 'namePronunciation', 'nearbyAttractions'].includes(topicKey) && <TopicDetails lang={lang} topicKey={topicKey} />}
+
+    <article class="max-w-3xl mx-auto px-5 py-12">
 
       {topic.sections.map((s: any) => (
         <section class="mt-10">
@@ -39,12 +48,13 @@ const others = topicSlugs.filter((x) => x.key !== topicKey);
           {s.points && (
             <ul class="mt-3 space-y-2">
               {s.points.map((pt: any) => (
-                <li class="flex gap-2 text-ink/80"><span class="text-gold mt-0.5" aria-hidden="true">•</span><span>{pt}</span></li>
+                <li class="flex gap-2 text-ink/80"><span class="text-gold mt-0.5" aria-hidden="true">•</span><span>{typeof pt === 'string' && pt.includes('https://www.google.com/maps/search/') ? <a class="text-gold underline" href={pt.slice(pt.indexOf('https://'))} target="_blank" rel="noopener noreferrer">{pt.slice(0, pt.indexOf('https://')).trim()} ↗</a> : pt}</span></li>
               ))}
             </ul>
           )}
         </section>
       ))}
+      <a href="https://maps.app.goo.gl/ke3RYFkZshgETy5q9" target="_blank" rel="noopener noreferrer" class="inline-flex mt-8 rounded-xl bg-teak text-ivory px-5 py-3 hover:bg-teakDeep">{lang === 'zh' ? '查看凯旋门地图位置 ↗' : lang === 'lo' ? 'ເບິ່ງທີ່ຕັ້ງໃນແຜນທີ່ ↗' : 'View Patuxai on Google Maps ↗'}</a>
 
       <p class="mt-10 text-sm text-ink/50">{t.updatedLabel}: {topic.lastUpdated}</p>
     </article>

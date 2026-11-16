@@ -2,14 +2,14 @@
 import { languagesList } from '../../i18n/ui';
 import TopicPage from '../../components/TopicPage.astro';
 import { getI18n, type Lang } from '../../i18n/ui';
-
-const topicMap: Record<string, string> = {
-  visit: 'visit',
-  photos: 'photos',
-  'getting-here': 'gettingHere',
-};
+import { extraTopics } from '../../i18n/extraTopics';
 
 export function getStaticPaths() {
+  const topicMap: Record<string, string> = {
+    visit: 'visit', photos: 'photos', 'getting-here': 'gettingHere',
+    'history-architecture': 'historyArchitecture', 'name-pronunciation': 'namePronunciation',
+    'nearby-attractions': 'nearbyAttractions',
+  };
   return languagesList.flatMap((lang) =>
     Object.entries(topicMap).map(([slug, key]) => ({
       params: { lang, topic: slug },
@@ -20,7 +20,8 @@ export function getStaticPaths() {
 
 const { lang: paramLang, topic: paramTopic } = Astro.params as { lang: Lang; topic: string };
 const { lang, messages } = await getI18n(paramLang);
-const topicKey = topicMap[paramTopic];
+messages.topics = { ...messages.topics, ...extraTopics[lang] };
+const topicKey = ({ visit: 'visit', photos: 'photos', 'getting-here': 'gettingHere', 'history-architecture': 'historyArchitecture', 'name-pronunciation': 'namePronunciation', 'nearby-attractions': 'nearbyAttractions' } as Record<string, string>)[paramTopic];
 ---
 
 <TopicPage lang={lang} messages={messages} topicKey={topicKey} path={paramTopic} />

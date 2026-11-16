@@ -1,0 +1,27 @@
+---
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const labels = {
+  en: { eyebrow: 'Explore Vientiane', title: 'Around Patuxai', intro: 'Continue from the Victory Gate to historic stupas, temples and central streets. Each place has its own map search.', guide: 'Explore the suggested route', map: 'Map' },
+  zh: { eyebrow: '探索万象', title: '凯旋门周边游览', intro: '从凯旋门继续探索历史佛塔、寺庙与市中心街道。每个地点均配置独立地图搜索。', guide: '查看周边游览路线', map: '地图' },
+  lo: { eyebrow: 'ທ່ຽວວຽງຈັນ', title: 'ທ່ຽວອ້ອມປະຕູໄຊ', intro: 'ສຳຫຼວດທາດເກົ່າ ວັດ ແລະ ຖະໜົນໃນເມືອງ. ແຕ່ລະບ່ອນມີແຜນທີ່ຂອງຕົນ.', guide: 'ເບິ່ງເສັ້ນທາງ', map: 'ແຜນທີ່' },
+};
+const t = labels[lang];
+const places = [
+  { en: 'That Dam', zh: '黑塔', lo: 'ທາດດຳ', q: 'That Dam Vientiane', id: 'that-dam' },
+  { en: 'Wat Si Saket', zh: '沙格庙', lo: 'ວັດສີສະເກດ', q: 'Wat Si Saket Vientiane', id: 'wat-si-saket' },
+  { en: 'Pha That Luang', zh: '塔銮', lo: 'ພະທາດຫຼວງ', q: 'Pha That Luang Vientiane', id: 'pha-that-luang' },
+  { en: 'Talat Sao', zh: '早市', lo: 'ຕະຫຼາດເຊົ້າ', q: 'Talat Sao Vientiane', id: 'talat-sao' },
+];
+---
+<section id="nearby" class="bg-ivory py-16 border-y border-gold/20">
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="font-hand text-gold text-xl">{t.eyebrow}</p>
+    <h2 class="font-display font-semibold text-2xl md:text-4xl text-teak mt-2">{t.title}</h2>
+    <p class="text-ink/75 mt-3 max-w-3xl">{t.intro}</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
+      {places.map((p) => <div class="bg-white/75 border border-gold/20 rounded-2xl p-5"><h3 class="font-display text-xl text-teak">{p[lang]}</h3><div class="flex gap-4 mt-4 text-sm"><a href={`/${lang}/attractions/${p.id}/`} class="text-gold underline">{t.guide}</a><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.q)}`} target="_blank" rel="noopener noreferrer" class="text-gold underline">{t.map} ↗</a></div></div>)}
+    </div>
+  </div>
+</section>

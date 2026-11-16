@@ -1,5 +1,6 @@
 ---
 import { type Lang } from '../i18n/ui';
+import { extraTopics } from '../i18n/extraTopics';
 
 interface Props {
   lang: Lang;
@@ -11,6 +12,11 @@ const cards = [
   { slug: 'visit', title: t.visit.cardTitle, desc: t.visit.cardDesc },
   { slug: 'photos', title: t.photos.cardTitle, desc: t.photos.cardDesc },
   { slug: 'getting-here', title: t.gettingHere.cardTitle, desc: t.gettingHere.cardDesc },
+  ...(['historyArchitecture', 'namePronunciation', 'nearbyAttractions'] as const).map((key, i) => ({
+    slug: ['history-architecture', 'name-pronunciation', 'nearby-attractions'][i],
+    title: extraTopics[lang][key].cardTitle,
+    desc: extraTopics[lang][key].cardDesc,
+  })),
 ];
 ---
 

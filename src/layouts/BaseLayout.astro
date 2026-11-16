@@ -9,8 +9,9 @@ interface Props {
   description: string;
   messages: Record<string, any>;
   path?: string;
+  attractionOverride?: { name: string; address: string; mapUrl: string; faqs: [string, string][] };
 }
-const { lang, title, description, messages, path = '' } = Astro.props;
+const { lang, title, description, messages, path = '', attractionOverride } = Astro.props;
 const pathPart = path ? `${path}/` : '';
 const canonical = `${siteConfig.domain}/${lang}/${pathPart}`;
 
@@ -23,7 +24,7 @@ const entityDescription: Record<Lang, string> = {
   zh: `${siteConfig.name.zh}（${siteConfig.city.zh}）完整游客指南——位于${siteConfig.stateProvince.zh}的${siteConfig.country.zh}。`,
 };
 
-const jsonLd = [
+const patuxaiJsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'TouristAttraction',
@@ -80,6 +81,15 @@ const jsonLd = [
     })),
   },
 ];
+const jsonLd = attractionOverride ? [
+  {
+    '@context': 'https://schema.org', '@type': 'TouristAttraction',
+    '@id': `${canonical}#attraction`, name: attractionOverride.name,
+    description, url: canonical, hasMap: attractionOverride.mapUrl,
+    address: { '@type': 'PostalAddress', streetAddress: attractionOverride.address, addressLocality: 'Vientiane', addressCountry: 'LA' },
+  },
+  { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: attractionOverride.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
+] : patuxaiJsonLd;
 ---
 
 <!doctype html>
@@ -95,8 +105,8 @@ const jsonLd = [
     <meta property="og:locale" content={htmlLang[lang]} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteConfig.domain}${siteConfig.ogImage}`} />
-    <meta property="og:image:alt" content={`${siteConfig.name[lang]} — ${siteConfig.city[lang]}, ${siteConfig.country[lang]}`} />
+    {!attractionOverride && <meta property="og:image" content={`${siteConfig.domain}${siteConfig.ogImage}`} />}
+    {!attractionOverride && <meta property="og:image:alt" content={`${siteConfig.name[lang]} — ${siteConfig.city[lang]}, ${siteConfig.country[lang]}`} />}
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
 

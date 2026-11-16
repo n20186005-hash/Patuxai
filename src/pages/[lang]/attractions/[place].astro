@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getI18n, type Lang } from '../../../i18n/ui';
+import { nearbySlugs, getNearbyPlace } from '../../../i18n/nearbyPlaces';
+
+export function getStaticPaths() {
+  return ['lo', 'en', 'zh'].flatMap((lang) => ['that-dam', 'wat-si-saket', 'pha-that-luang', 'talat-sao'].map((place) => ({ params: { lang, place } })));
+}
+const { lang: paramLang, place: slug } = Astro.params as { lang: Lang; place: string };
+const { lang, messages } = getI18n(paramLang);
+const p = getNearbyPlace(slug, lang)!;
+const route = `attractions/${slug}`;
+const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.mapQuery)}`;
+const labels = {
+  en: { guide: 'Explore this place', suggestion: 'Plan your visit', distinct: 'What makes it special', about: 'About this attraction and its stewardship', basics: 'Basic information', type: 'Attraction type', location: 'Street address', duration: 'Suggested stay', hours: 'Opening and access', admission: 'Tickets and fees', arrival: 'Getting here', history: 'Historical background', architecture: 'Architecture and landscape', culture: 'Cultural importance', route: 'Suggested route', notice: 'Visitor notes', photo: 'Photo viewpoints', lodging: 'Where to stay', reviews: 'Visitor impressions', faq: 'Frequently asked questions', map: 'Directions and map', nearby: 'More nearby attractions', source: 'Reference', rating: 'Visitor ratings: check the live map listing', return: 'Back to Patuxai', maps: 'Open this place on Google Maps' },
+  zh: { guide: '探索景点', suggestion: '游览建议', distinct: '景区特色', about: '关于景点及管理维护', basics: '基本信息', type: '景点类型', location: '具体地址', duration: '建议停留', hours: '开放时间', admission: '门票价格', arrival: '交通方式', history: '历史背景', architecture: '建筑与环境', culture: '文化特色', route: '建议游览路线', notice: '游览须知', photo: '推荐拍摄机位', lodging: '住宿建议', reviews: '游客评价', faq: '常见问题', map: '交通指南与地图', nearby: '更多周边景点', source: '资料来源', rating: '游客评分：请查看实时地图资料', return: '返回万象凯旋门', maps: '在 Google 地图查看此景点' },
+  lo: { guide: 'ສຳຫຼວດສະຖານທີ່', suggestion: 'ຄຳແນະນຳການທ່ຽວ', distinct: 'ຈຸດເດັ່ນ', about: 'ກ່ຽວກັບສະຖານທີ່ແລະການດູແລ', basics: 'ຂໍ້ມູນພື້ນຖານ', type: 'ປະເພດ', location: 'ທີ່ຢູ່', duration: 'ເວລາທ່ຽວ', hours: 'ເວລາເປີດ', admission: 'ຄ່າເຂົ້າ', arrival: 'ການເດີນທາງ', history: 'ປະຫວັດ', architecture: 'ສະຖາປັດຕະຍະກຳ', culture: 'ວັດທະນະທຳ', route: 'ເສັ້ນທາງແນະນຳ', notice: 'ຂໍ້ຄວນຮູ້', photo: 'ມຸມຖ່າຍຮູບ', lodging: 'ທີ່ພັກ', reviews: 'ຄຳຄິດເຫັນ', faq: 'ຄຳຖາມທີ່ພົບເລື້ອຍ', map: 'ແຜນທີ່ແລະທາງໄປ', nearby: 'ສະຖານທີ່ໃກ້ຄຽງ', source: 'ແຫຼ່ງຂໍ້ມູນ', rating: 'ກວດກາຄະແນນປັດຈຸບັນໃນແຜນທີ່', return: 'ກັບໄປປະຕູໄຊ', maps: 'ເບິ່ງສະຖານທີ່ໃນ Google Maps' },
+}[lang];
+const otherPlaces = nearbySlugs.filter((s) => s !== slug).map((s) => getNearbyPlace(s, lang)!);
+const photos: Record<string, { file: string; source: string }[]> = {
+  'that-dam': [{ file: 'that-dam-1.jpg', source: 'https://commons.wikimedia.org/wiki/File:That_Dam.jpg' }],
+  'wat-si-saket': [
+    { file: 'wat-si-saket-1.jpg', source: 'https://commons.wikimedia.org/wiki/File:Wat_Si_Saket_front_view,_Vientiane,_Laos.jpg' },
+    { file: 'wat-si-saket-2.jpg', source: 'https://commons.wikimedia.org/wiki/File:Cloister_of_Wat_Si_Saket.jpg' },
+  ],
+  'pha-that-luang': [{ file: 'pha-that-luang-1.jpg', source: 'https://commons.wikimedia.org/wiki/File:Pha_That_Luang_Vientiane.jpg' }],
+  'talat-sao': [
+    { file: 'talat-sao-1.jpg', source: 'https://commons.wikimedia.org/wiki/File:Morning_Market_(talat_sao)_Vientiane,_Laos.jpg' },
+    { file: 'talat-sao-2.jpg', source: 'https://commons.wikimedia.org/wiki/File:Talat_Sao_1.jpg' },
+  ],
+};
+const imageLabel = { en: 'Photographs of this attraction', zh: '景点专属实景照片', lo: 'ຮູບພາບສະຖານທີ່' }[lang];
+const imageSourceLabel = { en: 'Photo source', zh: '照片来源', lo: 'ແຫຼ່ງຮູບພາບ' }[lang];
+---
+<BaseLayout lang={lang} title={`${p.name} | ${p.description.slice(0, 65)}`} description={p.description} messages={messages} path={route} attractionOverride={{ name: p.name, address: p.address, mapUrl, faqs: p.faqs }}>
+  <Header lang={lang} messages={messages} />
+  <main class="bg-ivory text-ink">
+    <section class="bg-teakDeep text-ivory pt-28 pb-16">
+      <div class="max-w-6xl mx-auto px-5">
+        <p class="font-hand text-goldBright text-xl">Vientiane · Laos</p>
+        <h1 class="font-display text-4xl md:text-6xl mt-2">{p.name}</h1>
+        <p class="mt-3 text-lg text-ivory/85 max-w-3xl">{p.tagline}</p>
+        <div class="flex flex-wrap gap-3 mt-7 text-sm"><span class="border border-gold/35 rounded-full px-4 py-2">{p.category}</span><span class="border border-gold/35 rounded-full px-4 py-2">{p.time}</span><span class="border border-gold/35 rounded-full px-4 py-2">{labels.rating}</span></div>
+        <p class="mt-5 text-ivory/75">{p.hours}</p>
+        <div class="flex flex-wrap gap-4 mt-7"><a href={mapUrl} target="_blank" rel="noopener noreferrer" class="rounded-xl bg-gold text-teakDeep px-5 py-3 font-semibold">{labels.maps} ↗</a><a href={`/${lang}/`} class="rounded-xl border border-gold/50 px-5 py-3">← {labels.return}</a></div>
+      </div>
+    </section>
+    <section class="max-w-5xl mx-auto px-5 py-14">
+      <p class="font-hand text-gold text-xl">{labels.guide}</p><h2 class="font-display text-3xl text-teak mt-2">{labels.suggestion}</h2><p class="mt-5 leading-8 text-ink/80">{p.intro}</p><p class="mt-4 leading-8 text-ink/80">{p.visit}</p>
+      <h3 class="font-display text-2xl text-teak mt-8">{labels.distinct}</h3><ul class="list-disc pl-6 mt-3 space-y-2">{p.highlights.map((v) => <li>{v}</li>)}</ul>
+    </section>
+    <section class="bg-white/70 border-y border-gold/15 py-14">
+      <div class="max-w-5xl mx-auto px-5"><h2 class="font-display text-3xl text-teak">{labels.about}</h2><p class="mt-5 text-ink/80 leading-8">{p.manager}</p><a href={p.source} target="_blank" rel="noopener noreferrer" class="text-gold underline mt-3 inline-block text-sm">{labels.source} ↗</a></div>
+    </section>
+    <section class="max-w-5xl mx-auto px-5 py-14"><h2 class="font-display text-3xl text-teak">{labels.basics}</h2><dl class="grid sm:grid-cols-2 gap-4 mt-6">{[[labels.type,p.category],[labels.location,p.address],[labels.duration,p.time],[labels.hours,p.hours],[labels.admission,p.admission],[labels.arrival,p.mapQuery]].map(([key,value]) => <div class="bg-white/75 rounded-xl p-5 border border-gold/15"><dt class="font-semibold text-teak">{key}</dt><dd class="mt-2 text-ink/75">{value}</dd></div>)}</dl></section>
+    <section class="max-w-5xl mx-auto px-5 pb-14"><h2 class="font-display text-3xl text-teak">{imageLabel}</h2><div class="grid sm:grid-cols-2 gap-5 mt-6">{photos[slug].map((photo, i) => <figure class="bg-white rounded-2xl overflow-hidden border border-gold/20"><img src={`/attractions/${photo.file}`} alt={`${p.name} — ${i + 1}`} width="1280" height="960" loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover"/><figcaption class="px-4 py-3 text-sm"><a href={photo.source} target="_blank" rel="noopener noreferrer" class="text-gold underline">{imageSourceLabel} ↗</a></figcaption></figure>)}</div></section>
+    <section class="bg-white/40 py-14"><div class="max-w-5xl mx-auto px-5 grid md:grid-cols-3 gap-8">{[[labels.history,p.history],[labels.architecture,p.architecture],[labels.culture,p.culture]].map(([heading,body]) => <article><h2 class="font-display text-2xl text-teak">{heading}</h2><p class="mt-4 text-ink/80 leading-8">{body}</p></article>)}</div></section>
+    <section class="max-w-5xl mx-auto px-5 py-14 grid md:grid-cols-2 gap-12"><div><h2 class="font-display text-3xl text-teak">{labels.route}</h2><ol class="list-decimal pl-6 space-y-3 mt-5 leading-7">{p.route.map((s) => <li>{s}</li>)}</ol></div><div><h2 class="font-display text-3xl text-teak">{labels.notice}</h2><ul class="list-disc pl-6 space-y-3 mt-5 leading-7">{p.etiquette.map((s) => <li>{s}</li>)}</ul></div></section>
+    <section class="bg-white/50 py-14"><div class="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-12"><div><h2 class="font-display text-3xl text-teak">{labels.photo}</h2><ul class="list-disc pl-6 mt-5 space-y-3">{p.photo.map((s) => <li>{s}</li>)}</ul></div><div><h2 class="font-display text-3xl text-teak">{labels.lodging}</h2><p class="mt-5 leading-8">{p.lodging}</p><h2 class="font-display text-2xl text-teak mt-8">{labels.reviews}</h2><p class="mt-4 leading-8">{p.review}</p></div></div></section>
+    <section class="max-w-5xl mx-auto px-5 py-14"><h2 class="font-display text-3xl text-teak">{labels.faq}</h2><div class="grid md:grid-cols-2 gap-5 mt-6">{p.faqs.map(([q,a]) => <div class="rounded-xl bg-white/75 border border-gold/15 p-5"><h3 class="font-semibold text-teak">{q}</h3><p class="mt-3 leading-7">{a}</p></div>)}</div></section>
+    <section class="bg-white/60 py-14"><div class="max-w-5xl mx-auto px-5"><h2 class="font-display text-3xl text-teak">{labels.map}</h2><p class="mt-4">{p.address}</p><p class="mt-4">{p.mapQuery}</p><a href={mapUrl} target="_blank" rel="noopener noreferrer" class="inline-block mt-5 bg-teak text-white rounded-xl px-5 py-3">{labels.maps} ↗</a></div></section>
+    <section class="max-w-5xl mx-auto px-5 py-14"><h2 class="font-display text-3xl text-teak">{labels.nearby}</h2><div class="grid sm:grid-cols-3 gap-5 mt-6">{otherPlaces.map((other) => <a href={`/${lang}/attractions/${other.slug}/`} class="rounded-xl bg-white/80 border border-gold/25 p-5 hover:border-gold"><h3 class="font-display text-lg text-teak">{other.name}</h3><p class="mt-2 text-sm text-ink/70">{other.tagline}</p></a>)}</div></section>
+  </main><Footer lang={lang} messages={messages} />
+</BaseLayout>

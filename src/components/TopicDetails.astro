@@ -1,0 +1,94 @@
+---
+import { siteConfig } from '../config';
+import type { Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; topicKey: string }
+const { lang, topicKey } = Astro.props;
+const labels = {
+  en: {
+    about: 'About Patuxai and its stewardship', management: 'Patuxai is a public commemorative landmark in Vientiane Capital. Its public spaces and renovation work involve city-level agencies. The Vientiane City Office for Management and Services (VCOMS) announced a monument renovation in 2023; local public works authorities have also described improvements to Patuxai Park. The precise operating responsibilities may change, so follow current on-site notices for access.',
+    facts: 'Visitor essentials', address: 'Address', hours: 'Tower access', ticket: 'Admission', transport: 'Getting here', access: 'The surrounding plaza can be visited separately from the interior tower. Tower opening and any charge should be confirmed on site.',
+    travel: 'Suggested visit', steps: ['Begin at the fountain plaza to see the full monument.', 'Walk under the arches and observe the ceiling ornament.', 'Circle the exterior to compare all faces and the five-tower skyline.', 'Check tower admission before climbing; finish with city views or nearby streets.'],
+    photography: 'Photo viewpoints', photoTips: ['Wide view from the fountain plaza in softer morning light.', 'Symmetrical frame through the arch toward Lane Xang Avenue.', 'Closer view of the ceiling ornament from beneath the arch.', 'Upper-level city panorama if access is open.'],
+    gallery: 'Patuxai photographs', galleryNote: 'These are photographs of Patuxai itself, not of the other attractions listed nearby.',
+    faq: 'Frequently asked questions', faqs: [['Can I enter Patuxai without a ticket?', 'The exterior park and plaza are public spaces. Entry to upper levels is a separate activity; check the current price and access locally.'], ['How long should I allow?', 'Around 30–60 minutes is reasonable for the monument and plaza. Add time for the staircase, photography and nearby stops.'], ['When is the best light?', 'Early morning and late afternoon are generally gentler for photos. Do not count on rooftop access at sunset without checking closing times.'], ['Is the route suitable for children?', 'The plaza is easier than the stairway. Supervise children near roads, water features and any stairs.']],
+    maps: 'Find places on Google Maps', nearby: 'Nearby places to explore', more: 'Read the local guide', source: 'Management and renewal reference', stay: 'Where to stay', stayText: 'For an easy visit, compare accommodation near Lane Xang Avenue or the central Vientiane district. Check the property’s actual walking or driving route before booking.',
+  },
+  zh: {
+    about: '关于万象凯旋门及管理维护', management: '万象凯旋门是老挝首都市区的公共纪念地标，周边公共空间及整修工程涉及市级公共部门。万象市管理与服务办公室（VCOMS）曾于2023年发布凯旋门整修通知；万象市公共工程部门亦曾介绍凯旋门公园改善项目。实际运营职责可能随时间调整，登塔与设施开放请以现场公告为准。',
+    facts: '参观基本信息', address: '详细地址', hours: '登塔开放', ticket: '门票', transport: '交通方式', access: '广场游览与纪念碑内部登塔分开；登塔开放及收费以现场公告为准。',
+    travel: '建议游览路线', steps: ['从喷泉广场开始，拍摄凯旋门全景。', '步入拱门下，欣赏顶部浮雕与装饰。', '绕建筑一周，比较不同立面及五座塔楼。', '现场核实登塔安排，再登高眺望万象市区或继续前往周边街道。'],
+    photography: '推荐拍摄机位', photoTips: ['喷泉广场：早晨柔和光线下拍建筑全景。', '拱门中轴：以澜沧大道作对称构图。', '拱门内部：近距离拍摄天花装饰。', '上层观景台：开放时拍摄万象市区全景。'],
+    gallery: '万象凯旋门实景照片', galleryNote: '以下照片展示凯旋门本身，不代表周边其他景点。',
+    faq: '常见问题', faqs: [['不买门票可以参观吗？', '外围广场属于公共空间；内部登塔为不同参观项目，票价与开放状态请现场核实。'], ['建议停留多久？', '欣赏建筑与广场约需30–60分钟；登塔、拍照及周边游览需另加时间。'], ['什么时候适合拍照？', '清晨与傍晚光线通常较柔和；若想登塔拍日落，须先核实关闭时间。'], ['适合带孩子参观吗？', '广场相对容易游览，内部楼梯需要留意；请照看孩子并注意车道与水景。']],
+    maps: 'Google 地图定位', nearby: '附近值得游览的地点', more: '查看独立景点指南', source: '管理维护资料来源', stay: '住宿建议', stayText: '可优先比较澜沧大道及万象市中心周边住宿，并根据实际步行路线与交通时间决定。',
+  },
+  lo: {
+    about: 'ກ່ຽວກັບປະຕູໄຊ ແລະ ການດູແລ', management: 'ປະຕູໄຊເປັນອະນຸສາວະລີສາທາລະນະໃນນະຄອນຫຼວງວຽງຈັນ. ວຽກປັບປຸງພື້ນທີ່ມີການປະສານງານຈາກພາກລັດທ້ອງຖິ່ນ. ໃນປີ 2023 ສຳນັກງານຄຸ້ມຄອງແລະບໍລິການນະຄອນວຽງຈັນ (VCOMS) ໄດ້ແຈ້ງຂ່າວການປັບປຸງອະນຸສາວະລີ. ກະລຸນາກວດກາປະກາດປັດຈຸບັນຢູ່ສະຖານທີ່.',
+    facts: 'ຂໍ້ມູນການເຂົ້າຊົມ', address: 'ທີ່ຢູ່', hours: 'ເວລາຂຶ້ນຫໍ', ticket: 'ຄ່າເຂົ້າ', transport: 'ການເດີນທາງ', access: 'ລານດ້ານນອກແລະການຂຶ້ນຫໍເປັນກິດຈະກຳຕ່າງກັນ. ຄວນກວດກາເວລາແລະຄ່າເຂົ້າຢູ່ສະຖານທີ່.',
+    travel: 'ເສັ້ນທາງແນະນຳ', steps: ['ເລີ່ມທີ່ລານນ້ຳພຸເພື່ອຊົມພາບລວມ.', 'ຍ່າງໃຕ້ປະຕູໂຄ້ງເພື່ອຊົມລວດລາຍ.', 'ຍ່າງອ້ອມອາຄານເບິ່ງຫໍຄອຍຫ້າຈຸດ.', 'ກວດກາການເປີດຫໍກ່ອນຂຶ້ນຊົມວິວ.'],
+    photography: 'ມຸມຖ່າຍຮູບ', photoTips: ['ລານນ້ຳພຸ: ຖ່າຍພາບລວມຕອນເຊົ້າ.', 'ແນວກາງປະຕູ: ໃຫ້ຖະໜົນລ້ານຊ້າງເປັນພື້ນຫຼັງ.', 'ໃຕ້ປະຕູ: ຖ່າຍລວດລາຍເພດານ.', 'ຊັ້ນເທິງ: ຖ່າຍວິວເມືອງເມື່ອເປີດ.'],
+    gallery: 'ຮູບພາບປະຕູໄຊ', galleryNote: 'ຮູບເຫຼົ່ານີ້ເປັນຮູບປະຕູໄຊ ບໍ່ແມ່ນສະຖານທີ່ອື່ນ.',
+    faq: 'ຄຳຖາມທີ່ພົບເລື້ອຍ', faqs: [['ເຂົ້າລານໄດ້ຟຣີບໍ?', 'ລານດ້ານນອກເປັນພື້ນທີ່ສາທາລະນະ; ການຂຶ້ນຫໍອາດມີຄ່າເຂົ້າ.'], ['ຄວນໃຊ້ເວລາເທົ່າໃດ?', 'ປະມານ 30–60 ນາທີສຳລັບອາຄານແລະລານ.'], ['ຖ່າຍຮູບເວລາໃດດີ?', 'ຕອນເຊົ້າຫຼືຕອນແລງມີແສງນຸ່ມກວ່າ.'], ['ພາເດັກໄປໄດ້ບໍ?', 'ຄວນລະວັງຂັ້ນໄດ ຖະໜົນ ແລະ ບໍລິເວນນ້ຳພຸ.']],
+    maps: 'ແຜນທີ່ Google', nearby: 'ສະຖານທີ່ໃກ້ຄຽງ', more: 'ອ່ານຄູ່ມື', source: 'ແຫຼ່ງຂໍ້ມູນການປັບປຸງ', stay: 'ບ່ອນພັກ', stayText: 'ສາມາດເລືອກທີ່ພັກໃກ້ຖະໜົນລ້ານຊ້າງ ຫຼື ເຂດກາງວຽງຈັນ ແລະ ກວດກາເສັ້ນທາງກ່ອນຈອງ.',
+  },
+};
+const t = labels[lang];
+const destinations = [
+  { id: 'that-dam', en: 'That Dam (Black Stupa)', zh: '黑塔 That Dam', lo: 'ທາດດຳ', q: 'That Dam Vientiane' },
+  { id: 'wat-si-saket', en: 'Wat Si Saket', zh: '沙格庙 Wat Si Saket', lo: 'ວັດສີສະເກດ', q: 'Wat Si Saket Vientiane' },
+  { id: 'pha-that-luang', en: 'Pha That Luang', zh: '塔銮 Pha That Luang', lo: 'ພະທາດຫຼວງ', q: 'Pha That Luang Vientiane' },
+  { id: 'talat-sao', en: 'Talat Sao Morning Market', zh: '早市 Talat Sao', lo: 'ຕະຫຼາດເຊົ້າ', q: 'Talat Sao Vientiane' },
+];
+const photos = topicKey === 'historyArchitecture' ? [3, 9, 16] : topicKey === 'namePronunciation' ? [1, 6] : [5, 12];
+---
+
+<section class="bg-white/65 border-y border-gold/15 py-14" aria-labelledby="management-heading">
+  <div class="max-w-5xl mx-auto px-5">
+    <p class="font-hand text-gold text-xl">Patuxai · Vientiane</p>
+    <h2 id="management-heading" class="font-display text-3xl text-teak mt-2">{t.about}</h2>
+    <p class="mt-5 leading-8 text-ink/80">{t.management}</p>
+    <a class="inline-block mt-4 text-gold underline text-sm" href="https://laotiantimes.com/2023/05/22/patuxay-monument-in-vientiane-capital-to-get-makeover/" target="_blank" rel="noopener noreferrer">{t.source} ↗</a>
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-5 py-14">
+  <h2 class="font-display text-3xl text-teak">{t.facts}</h2>
+  <dl class="grid sm:grid-cols-2 gap-4 mt-6">
+    <div class="bg-white/70 rounded-xl p-5"><dt class="font-semibold text-teak">{t.address}</dt><dd class="mt-2">{siteConfig.address}</dd></div>
+    <div class="bg-white/70 rounded-xl p-5"><dt class="font-semibold text-teak">{t.hours}</dt><dd class="mt-2">{siteConfig.openingHours.time} · {lang === 'zh' ? '以现场公告为准' : lang === 'lo' ? 'ກວດກາປະກາດໜ້າງານ' : 'verify on site'}</dd></div>
+    <div class="bg-white/70 rounded-xl p-5"><dt class="font-semibold text-teak">{t.ticket}</dt><dd class="mt-2">{t.access}</dd></div>
+    <div class="bg-white/70 rounded-xl p-5"><dt class="font-semibold text-teak">{t.transport}</dt><dd class="mt-2">Lane Xang Avenue · {lang === 'zh' ? '步行、嘟嘟车或出租车' : lang === 'lo' ? 'ຍ່າງ, ລົດຕຸກຕຸກ ຫຼື ລົດແທັກຊີ' : 'walk, tuk-tuk or taxi'}</dd></div>
+  </dl>
+</section>
+
+<section class="bg-white/45 py-14">
+  <div class="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-10">
+    <div><h2 class="font-display text-3xl text-teak">{t.travel}</h2><ol class="mt-6 space-y-4 list-decimal pl-6 text-ink/80 leading-7">{t.steps.map((s) => <li>{s}</li>)}</ol></div>
+    <div><h2 class="font-display text-3xl text-teak">{t.photography}</h2><ul class="mt-6 space-y-4 list-disc pl-6 text-ink/80 leading-7">{t.photoTips.map((s) => <li>{s}</li>)}</ul></div>
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-5 py-14">
+  <h2 class="font-display text-3xl text-teak">{t.gallery}</h2>
+  <p class="text-sm text-ink/60 mt-2">{t.galleryNote}</p>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+    {photos.map((n) => <figure class="rounded-xl overflow-hidden bg-white shadow-sm"><img src={`/gallery/patuxai-${n}.jpg`} alt={`${siteConfig.name[lang]} — ${lang === 'zh' ? '实景建筑' : lang === 'lo' ? 'ຮູບອາຄານ' : 'monument photograph'}`} loading="lazy" decoding="async" class="w-full aspect-[4/3] object-cover" /></figure>)}
+  </div>
+</section>
+
+<section class="bg-white/50 py-14">
+  <div class="max-w-5xl mx-auto px-5">
+    <h2 class="font-display text-3xl text-teak">{t.faq}</h2>
+    <div class="grid md:grid-cols-2 gap-5 mt-6">{t.faqs.map(([q, a]) => <div class="rounded-xl bg-ivory p-5"><h3 class="font-semibold text-teak">{q}</h3><p class="mt-2 text-ink/75 leading-7">{a}</p></div>)}</div>
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-5 py-14">
+  <h2 class="font-display text-3xl text-teak">{t.nearby}</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+    {destinations.map((d) => <div id={d.id} class="border border-gold/25 rounded-xl p-5 bg-white/70 scroll-mt-24"><h3 class="font-semibold text-teak">{d[lang]}</h3><div class="flex flex-wrap gap-3 mt-4 text-sm"><a class="text-gold underline" href={`/${lang}/attractions/${d.id}/`}>{t.more}</a><a class="text-gold underline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.q)}`} target="_blank" rel="noopener noreferrer">{t.maps} ↗</a></div></div>)}
+  </div>
+  <h3 class="font-display text-xl text-teak mt-10">{t.stay}</h3><p class="text-ink/75 mt-2 leading-7">{t.stayText}</p>
+  <p class="mt-6"><a class="text-gold underline" href={siteConfig.mapsUrl} target="_blank" rel="noopener noreferrer">Patuxai · {siteConfig.address} ↗</a></p>
+</section>
